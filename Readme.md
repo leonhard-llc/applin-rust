@@ -9,12 +9,18 @@ with only server-side code.
 
 <https://www.applin.dev/>
 
-Use a provided boilerplate app for the frontend.
+Use one the provided boilerplate app for the frontend.
 And use this library for the backend.
 
 Documentation: <https://www.applin.dev/docs/>
 
-Example: <https://github.com/leonhard-llc/applin-rust-demo>
+Examples: <https://github.com/leonhard-llc/applin-rust/tree/main/examples>
+
+# Try the Demo
+[bin/demo.rs](bin/demo.rs) runs at `https://rust-demo.applin.dev/` .
+You can install
+[Applin Tester from the App Store](https://apps.apple.com/us/app/applin-tester/id6464230000)
+and connect to the demo with this link: <applin:https://rust-demo.applin.dev/>.
 
 # Cargo Geiger Safety Report
 ```
@@ -80,6 +86,8 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 0/0        0/0          0/0    0/0     0/0      ❓      │   └── autocfg 1.1.0
 0/0        0/0          0/0    0/0     0/0      🔒      ├── async-net 1.8.0
 0/0        0/4          0/0    0/0     0/0      ❓      │   ├── async-io 1.13.0
+                                                           │   │   [build-dependencies]
+0/0        0/0          0/0    0/0     0/0      ❓      │   │   └── autocfg 1.1.0
 0/4        0/230        0/40   0/0     0/12     ❓      │   │   ├── async-lock 2.8.0
 0/0        0/0          0/0    0/0     0/0      ❓      │   │   ├── cfg-if 1.0.0
 0/0        0/170        0/2    0/0     0/1      ❓      │   │   ├── concurrent-queue 2.3.0
@@ -87,11 +95,11 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 0/2        0/20         0/1    0/0     0/0      ❓      │   │   ├── log 0.4.20
 0/0        0/0          0/0    0/0     0/0      🔒      │   │   ├── parking 2.2.0
 0/1        0/250        0/16   0/4     0/5      ❓      │   │   ├── polling 2.8.0
+                                                           │   │   │   [build-dependencies]
+0/0        0/0          0/0    0/0     0/0      ❓      │   │   │   └── autocfg 1.1.0
 0/0        0/0          0/0    0/0     0/0      ❓      │   │   │   ├── cfg-if 1.0.0
 0/90       0/554        0/2    0/0     0/55     ❓      │   │   │   ├── libc 0.2.149
 0/2        0/20         0/1    0/0     0/0      ❓      │   │   │   └── log 0.4.20
-                                                           │   │   │   [build-dependencies]
-0/0        0/0          0/0    0/0     0/0      ❓      │   │   │   └── autocfg 1.1.0
 0/371      0/6661       0/2    0/0     0/22     ❓      │   │   ├── rustix 0.37.27
 0/0        0/0          0/0    0/0     0/0      ❓      │   │   │   ├── bitflags 1.3.2
 0/0        0/100        0/0    0/0     0/0      ❓      │   │   │   ├── errno 0.3.5
@@ -103,13 +111,11 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 0/0        0/7          0/0    0/0     0/0      ❓      │   │   │   ├── itoa 1.0.9
 0/90       0/554        0/2    0/0     0/55     ❓      │   │   │   └── libc 0.2.149
 0/0        0/24         0/0    0/0     0/3      ❓      │   │   ├── slab 0.4.9
-0/0        0/5          0/0    0/0     0/0      ❓      │   │   │   └── serde 1.0.190
                                                            │   │   │   [build-dependencies]
 0/0        0/0          0/0    0/0     0/0      ❓      │   │   │   └── autocfg 1.1.0
+0/0        0/5          0/0    0/0     0/0      ❓      │   │   │   └── serde 1.0.190
 0/6        0/675        0/4    0/0     0/4      ❓      │   │   ├── socket2 0.4.10
 0/0        0/0          0/0    0/0     0/0      🔒      │   │   └── waker-fn 1.1.1
-                                                           │   │   [build-dependencies]
-0/0        0/0          0/0    0/0     0/0      ❓      │   │   └── autocfg 1.1.0
 0/0        0/0          0/0    0/0     0/0      🔒      │   ├── blocking 1.4.1
 0/0        0/0          0/0    0/0     0/0      ❓      │   └── futures-lite 1.13.0
 0/0        0/0          0/0    0/0     0/0      🔒      ├── fixed-buffer 0.5.0

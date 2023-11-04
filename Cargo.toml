@@ -17,3 +17,4 @@ servlin = { version = "^0.4.0", optional = true, features = ["json"] }
 serde = { version = "1", features = ["derive"] }
 
 [dev-dependencies]
+serde_json = "1"
