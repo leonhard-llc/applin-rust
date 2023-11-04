@@ -1,4 +1,4 @@
-Applin™
+applin-rust
 ======
 [![crates.io version](https://img.shields.io/crates/v/applin.svg)](https://crates.io/crates/applin)
 [![unsafe forbidden](https://raw.githubusercontent.com/leonhard-llc/applin-rust/main/unsafe-forbidden-success.svg)](https://github.com/rust-secure-code/safety-dance/)
@@ -9,8 +9,8 @@ with only server-side code.
 
 <https://www.applin.dev/>
 
-Use one the provided boilerplate app for the frontend.
-And use this library for the backend.
+Use a provided boilerplate app for the frontend.
+Use this library for the backend.
 
 Documentation: <https://www.applin.dev/docs/>
 
@@ -30,7 +30,7 @@ Symbols:
 
 Functions  Expressions  Impls  Traits  Methods  Dependency
 
-0/0        0/0          0/0    0/0     0/0      🔒  applin 0.1.0
+0/0        0/0          0/0    0/0     0/0      🔒  applin 0.1.1
 0/0        0/5          0/0    0/0     0/0      ❓  ├── serde 1.0.190
 0/0        0/0          0/0    0/0     0/0      ❓  │   └── serde_derive 1.0.190
 0/0        0/15         0/0    0/0     0/3      ❓  │       ├── proc-macro2 1.0.69

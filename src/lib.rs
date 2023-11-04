@@ -1,4 +1,4 @@
-//! Applin™
+//! applin-rust
 //! ======
 //! [![crates.io version](https://img.shields.io/crates/v/applin.svg)](https://crates.io/crates/applin)
 //! [![unsafe forbidden](https://raw.githubusercontent.com/leonhard-llc/applin-rust/main/unsafe-forbidden-success.svg)](https://github.com/rust-secure-code/safety-dance/)
@@ -9,8 +9,8 @@
 //!
 //! <https://www.applin.dev/>
 //!
-//! Use one the provided boilerplate app for the frontend.
-//! And use this library for the backend.
+//! Use a provided boilerplate app for the frontend.
+//! Use this library for the backend.
 //!
 //! Documentation: <https://www.applin.dev/docs/>
 //!
