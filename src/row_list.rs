@@ -1,4 +1,5 @@
 use serde::{Deserialize, Serialize};
+
 use crate::opt_widget_list::OptWidgetList;
 use crate::widget::Widget;
 
@@ -15,8 +16,8 @@ impl From<()> for RowList {
     }
 }
 
-impl<A: Into<OptWidgetList>> From<(A, )> for RowList {
-    fn from((a, ): (A, )) -> Self {
+impl<A: Into<OptWidgetList>> From<(A,)> for RowList {
+    fn from((a,): (A,)) -> Self {
         RowList(vec![a.into().0])
     }
 }
@@ -28,7 +29,7 @@ impl<A: Into<OptWidgetList>, B: Into<OptWidgetList>> From<(A, B)> for RowList {
 }
 
 impl<A: Into<OptWidgetList>, B: Into<OptWidgetList>, C: Into<OptWidgetList>> From<(A, B, C)>
-for RowList
+    for RowList
 {
     fn from((a, b, c): (A, B, C)) -> Self {
         RowList(vec![a.into().0, b.into().0, c.into().0])
@@ -36,11 +37,11 @@ for RowList
 }
 
 impl<
-    A: Into<OptWidgetList>,
-    B: Into<OptWidgetList>,
-    C: Into<OptWidgetList>,
-    D: Into<OptWidgetList>,
-> From<(A, B, C, D)> for RowList
+        A: Into<OptWidgetList>,
+        B: Into<OptWidgetList>,
+        C: Into<OptWidgetList>,
+        D: Into<OptWidgetList>,
+    > From<(A, B, C, D)> for RowList
 {
     fn from((a, b, c, d): (A, B, C, D)) -> Self {
         RowList(vec![a.into().0, b.into().0, c.into().0, d.into().0])
@@ -48,12 +49,12 @@ impl<
 }
 
 impl<
-    A: Into<OptWidgetList>,
-    B: Into<OptWidgetList>,
-    C: Into<OptWidgetList>,
-    D: Into<OptWidgetList>,
-    E: Into<OptWidgetList>,
-> From<(A, B, C, D, E)> for RowList
+        A: Into<OptWidgetList>,
+        B: Into<OptWidgetList>,
+        C: Into<OptWidgetList>,
+        D: Into<OptWidgetList>,
+        E: Into<OptWidgetList>,
+    > From<(A, B, C, D, E)> for RowList
 {
     fn from((a, b, c, d, e): (A, B, C, D, E)) -> Self {
         RowList(vec![
@@ -67,13 +68,13 @@ impl<
 }
 
 impl<
-    A: Into<OptWidgetList>,
-    B: Into<OptWidgetList>,
-    C: Into<OptWidgetList>,
-    D: Into<OptWidgetList>,
-    E: Into<OptWidgetList>,
-    F: Into<OptWidgetList>,
-> From<(A, B, C, D, E, F)> for RowList
+        A: Into<OptWidgetList>,
+        B: Into<OptWidgetList>,
+        C: Into<OptWidgetList>,
+        D: Into<OptWidgetList>,
+        E: Into<OptWidgetList>,
+        F: Into<OptWidgetList>,
+    > From<(A, B, C, D, E, F)> for RowList
 {
     fn from((a, b, c, d, e, f): (A, B, C, D, E, F)) -> Self {
         RowList(vec![
@@ -88,14 +89,14 @@ impl<
 }
 
 impl<
-    A: Into<OptWidgetList>,
-    B: Into<OptWidgetList>,
-    C: Into<OptWidgetList>,
-    D: Into<OptWidgetList>,
-    E: Into<OptWidgetList>,
-    F: Into<OptWidgetList>,
-    G: Into<OptWidgetList>,
-> From<(A, B, C, D, E, F, G)> for RowList
+        A: Into<OptWidgetList>,
+        B: Into<OptWidgetList>,
+        C: Into<OptWidgetList>,
+        D: Into<OptWidgetList>,
+        E: Into<OptWidgetList>,
+        F: Into<OptWidgetList>,
+        G: Into<OptWidgetList>,
+    > From<(A, B, C, D, E, F, G)> for RowList
 {
     fn from((a, b, c, d, e, f, g): (A, B, C, D, E, F, G)) -> Self {
         RowList(vec![
@@ -111,15 +112,15 @@ impl<
 }
 
 impl<
-    A: Into<OptWidgetList>,
-    B: Into<OptWidgetList>,
-    C: Into<OptWidgetList>,
-    D: Into<OptWidgetList>,
-    E: Into<OptWidgetList>,
-    F: Into<OptWidgetList>,
-    G: Into<OptWidgetList>,
-    H: Into<OptWidgetList>,
-> From<(A, B, C, D, E, F, G, H)> for RowList
+        A: Into<OptWidgetList>,
+        B: Into<OptWidgetList>,
+        C: Into<OptWidgetList>,
+        D: Into<OptWidgetList>,
+        E: Into<OptWidgetList>,
+        F: Into<OptWidgetList>,
+        G: Into<OptWidgetList>,
+        H: Into<OptWidgetList>,
+    > From<(A, B, C, D, E, F, G, H)> for RowList
 {
     fn from((a, b, c, d, e, f, g, h): (A, B, C, D, E, F, G, H)) -> Self {
         RowList(vec![
@@ -136,16 +137,16 @@ impl<
 }
 
 impl<
-    A: Into<OptWidgetList>,
-    B: Into<OptWidgetList>,
-    C: Into<OptWidgetList>,
-    D: Into<OptWidgetList>,
-    E: Into<OptWidgetList>,
-    F: Into<OptWidgetList>,
-    G: Into<OptWidgetList>,
-    H: Into<OptWidgetList>,
-    I: Into<OptWidgetList>,
-> From<(A, B, C, D, E, F, G, H, I)> for RowList
+        A: Into<OptWidgetList>,
+        B: Into<OptWidgetList>,
+        C: Into<OptWidgetList>,
+        D: Into<OptWidgetList>,
+        E: Into<OptWidgetList>,
+        F: Into<OptWidgetList>,
+        G: Into<OptWidgetList>,
+        H: Into<OptWidgetList>,
+        I: Into<OptWidgetList>,
+    > From<(A, B, C, D, E, F, G, H, I)> for RowList
 {
     fn from((a, b, c, d, e, f, g, h, i): (A, B, C, D, E, F, G, H, I)) -> Self {
         RowList(vec![
@@ -163,17 +164,17 @@ impl<
 }
 
 impl<
-    A: Into<OptWidgetList>,
-    B: Into<OptWidgetList>,
-    C: Into<OptWidgetList>,
-    D: Into<OptWidgetList>,
-    E: Into<OptWidgetList>,
-    F: Into<OptWidgetList>,
-    G: Into<OptWidgetList>,
-    H: Into<OptWidgetList>,
-    I: Into<OptWidgetList>,
-    J: Into<OptWidgetList>,
-> From<(A, B, C, D, E, F, G, H, I, J)> for RowList
+        A: Into<OptWidgetList>,
+        B: Into<OptWidgetList>,
+        C: Into<OptWidgetList>,
+        D: Into<OptWidgetList>,
+        E: Into<OptWidgetList>,
+        F: Into<OptWidgetList>,
+        G: Into<OptWidgetList>,
+        H: Into<OptWidgetList>,
+        I: Into<OptWidgetList>,
+        J: Into<OptWidgetList>,
+    > From<(A, B, C, D, E, F, G, H, I, J)> for RowList
 {
     fn from((a, b, c, d, e, f, g, h, i, j): (A, B, C, D, E, F, G, H, I, J)) -> Self {
         RowList(vec![
@@ -192,18 +193,18 @@ impl<
 }
 
 impl<
-    A: Into<OptWidgetList>,
-    B: Into<OptWidgetList>,
-    C: Into<OptWidgetList>,
-    D: Into<OptWidgetList>,
-    E: Into<OptWidgetList>,
-    F: Into<OptWidgetList>,
-    G: Into<OptWidgetList>,
-    H: Into<OptWidgetList>,
-    I: Into<OptWidgetList>,
-    J: Into<OptWidgetList>,
-    K: Into<OptWidgetList>,
-> From<(A, B, C, D, E, F, G, H, I, J, K)> for RowList
+        A: Into<OptWidgetList>,
+        B: Into<OptWidgetList>,
+        C: Into<OptWidgetList>,
+        D: Into<OptWidgetList>,
+        E: Into<OptWidgetList>,
+        F: Into<OptWidgetList>,
+        G: Into<OptWidgetList>,
+        H: Into<OptWidgetList>,
+        I: Into<OptWidgetList>,
+        J: Into<OptWidgetList>,
+        K: Into<OptWidgetList>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K)> for RowList
 {
     fn from((a, b, c, d, e, f, g, h, i, j, k): (A, B, C, D, E, F, G, H, I, J, K)) -> Self {
         RowList(vec![
@@ -223,19 +224,19 @@ impl<
 }
 
 impl<
-    A: Into<OptWidgetList>,
-    B: Into<OptWidgetList>,
-    C: Into<OptWidgetList>,
-    D: Into<OptWidgetList>,
-    E: Into<OptWidgetList>,
-    F: Into<OptWidgetList>,
-    G: Into<OptWidgetList>,
-    H: Into<OptWidgetList>,
-    I: Into<OptWidgetList>,
-    J: Into<OptWidgetList>,
-    K: Into<OptWidgetList>,
-    L: Into<OptWidgetList>,
-> From<(A, B, C, D, E, F, G, H, I, J, K, L)> for RowList
+        A: Into<OptWidgetList>,
+        B: Into<OptWidgetList>,
+        C: Into<OptWidgetList>,
+        D: Into<OptWidgetList>,
+        E: Into<OptWidgetList>,
+        F: Into<OptWidgetList>,
+        G: Into<OptWidgetList>,
+        H: Into<OptWidgetList>,
+        I: Into<OptWidgetList>,
+        J: Into<OptWidgetList>,
+        K: Into<OptWidgetList>,
+        L: Into<OptWidgetList>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L)> for RowList
 {
     fn from((a, b, c, d, e, f, g, h, i, j, k, l): (A, B, C, D, E, F, G, H, I, J, K, L)) -> Self {
         RowList(vec![
@@ -256,20 +257,20 @@ impl<
 }
 
 impl<
-    A: Into<OptWidgetList>,
-    B: Into<OptWidgetList>,
-    C: Into<OptWidgetList>,
-    D: Into<OptWidgetList>,
-    E: Into<OptWidgetList>,
-    F: Into<OptWidgetList>,
-    G: Into<OptWidgetList>,
-    H: Into<OptWidgetList>,
-    I: Into<OptWidgetList>,
-    J: Into<OptWidgetList>,
-    K: Into<OptWidgetList>,
-    L: Into<OptWidgetList>,
-    M: Into<OptWidgetList>,
-> From<(A, B, C, D, E, F, G, H, I, J, K, L, M)> for RowList
+        A: Into<OptWidgetList>,
+        B: Into<OptWidgetList>,
+        C: Into<OptWidgetList>,
+        D: Into<OptWidgetList>,
+        E: Into<OptWidgetList>,
+        F: Into<OptWidgetList>,
+        G: Into<OptWidgetList>,
+        H: Into<OptWidgetList>,
+        I: Into<OptWidgetList>,
+        J: Into<OptWidgetList>,
+        K: Into<OptWidgetList>,
+        L: Into<OptWidgetList>,
+        M: Into<OptWidgetList>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M)> for RowList
 {
     fn from(
         (a, b, c, d, e, f, g, h, i, j, k, l, m): (A, B, C, D, E, F, G, H, I, J, K, L, M),
@@ -293,21 +294,21 @@ impl<
 }
 
 impl<
-    A: Into<OptWidgetList>,
-    B: Into<OptWidgetList>,
-    C: Into<OptWidgetList>,
-    D: Into<OptWidgetList>,
-    E: Into<OptWidgetList>,
-    F: Into<OptWidgetList>,
-    G: Into<OptWidgetList>,
-    H: Into<OptWidgetList>,
-    I: Into<OptWidgetList>,
-    J: Into<OptWidgetList>,
-    K: Into<OptWidgetList>,
-    L: Into<OptWidgetList>,
-    M: Into<OptWidgetList>,
-    N: Into<OptWidgetList>,
-> From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N)> for RowList
+        A: Into<OptWidgetList>,
+        B: Into<OptWidgetList>,
+        C: Into<OptWidgetList>,
+        D: Into<OptWidgetList>,
+        E: Into<OptWidgetList>,
+        F: Into<OptWidgetList>,
+        G: Into<OptWidgetList>,
+        H: Into<OptWidgetList>,
+        I: Into<OptWidgetList>,
+        J: Into<OptWidgetList>,
+        K: Into<OptWidgetList>,
+        L: Into<OptWidgetList>,
+        M: Into<OptWidgetList>,
+        N: Into<OptWidgetList>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N)> for RowList
 {
     fn from(
         (a, b, c, d, e, f, g, h, i, j, k, l, m, n): (A, B, C, D, E, F, G, H, I, J, K, L, M, N),
@@ -332,22 +333,22 @@ impl<
 }
 
 impl<
-    A: Into<OptWidgetList>,
-    B: Into<OptWidgetList>,
-    C: Into<OptWidgetList>,
-    D: Into<OptWidgetList>,
-    E: Into<OptWidgetList>,
-    F: Into<OptWidgetList>,
-    G: Into<OptWidgetList>,
-    H: Into<OptWidgetList>,
-    I: Into<OptWidgetList>,
-    J: Into<OptWidgetList>,
-    K: Into<OptWidgetList>,
-    L: Into<OptWidgetList>,
-    M: Into<OptWidgetList>,
-    N: Into<OptWidgetList>,
-    O: Into<OptWidgetList>,
-> From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O)> for RowList
+        A: Into<OptWidgetList>,
+        B: Into<OptWidgetList>,
+        C: Into<OptWidgetList>,
+        D: Into<OptWidgetList>,
+        E: Into<OptWidgetList>,
+        F: Into<OptWidgetList>,
+        G: Into<OptWidgetList>,
+        H: Into<OptWidgetList>,
+        I: Into<OptWidgetList>,
+        J: Into<OptWidgetList>,
+        K: Into<OptWidgetList>,
+        L: Into<OptWidgetList>,
+        M: Into<OptWidgetList>,
+        N: Into<OptWidgetList>,
+        O: Into<OptWidgetList>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O)> for RowList
 {
     fn from(
         (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o): (
@@ -389,23 +390,23 @@ impl<
 }
 
 impl<
-    A: Into<OptWidgetList>,
-    B: Into<OptWidgetList>,
-    C: Into<OptWidgetList>,
-    D: Into<OptWidgetList>,
-    E: Into<OptWidgetList>,
-    F: Into<OptWidgetList>,
-    G: Into<OptWidgetList>,
-    H: Into<OptWidgetList>,
-    I: Into<OptWidgetList>,
-    J: Into<OptWidgetList>,
-    K: Into<OptWidgetList>,
-    L: Into<OptWidgetList>,
-    M: Into<OptWidgetList>,
-    N: Into<OptWidgetList>,
-    O: Into<OptWidgetList>,
-    P: Into<OptWidgetList>,
-> From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P)> for RowList
+        A: Into<OptWidgetList>,
+        B: Into<OptWidgetList>,
+        C: Into<OptWidgetList>,
+        D: Into<OptWidgetList>,
+        E: Into<OptWidgetList>,
+        F: Into<OptWidgetList>,
+        G: Into<OptWidgetList>,
+        H: Into<OptWidgetList>,
+        I: Into<OptWidgetList>,
+        J: Into<OptWidgetList>,
+        K: Into<OptWidgetList>,
+        L: Into<OptWidgetList>,
+        M: Into<OptWidgetList>,
+        N: Into<OptWidgetList>,
+        O: Into<OptWidgetList>,
+        P: Into<OptWidgetList>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P)> for RowList
 {
     fn from(
         (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p): (
@@ -449,24 +450,24 @@ impl<
 }
 
 impl<
-    A: Into<OptWidgetList>,
-    B: Into<OptWidgetList>,
-    C: Into<OptWidgetList>,
-    D: Into<OptWidgetList>,
-    E: Into<OptWidgetList>,
-    F: Into<OptWidgetList>,
-    G: Into<OptWidgetList>,
-    H: Into<OptWidgetList>,
-    I: Into<OptWidgetList>,
-    J: Into<OptWidgetList>,
-    K: Into<OptWidgetList>,
-    L: Into<OptWidgetList>,
-    M: Into<OptWidgetList>,
-    N: Into<OptWidgetList>,
-    O: Into<OptWidgetList>,
-    P: Into<OptWidgetList>,
-    Q: Into<OptWidgetList>,
-> From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q)> for RowList
+        A: Into<OptWidgetList>,
+        B: Into<OptWidgetList>,
+        C: Into<OptWidgetList>,
+        D: Into<OptWidgetList>,
+        E: Into<OptWidgetList>,
+        F: Into<OptWidgetList>,
+        G: Into<OptWidgetList>,
+        H: Into<OptWidgetList>,
+        I: Into<OptWidgetList>,
+        J: Into<OptWidgetList>,
+        K: Into<OptWidgetList>,
+        L: Into<OptWidgetList>,
+        M: Into<OptWidgetList>,
+        N: Into<OptWidgetList>,
+        O: Into<OptWidgetList>,
+        P: Into<OptWidgetList>,
+        Q: Into<OptWidgetList>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q)> for RowList
 {
     fn from(
         (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q): (
@@ -512,25 +513,25 @@ impl<
 }
 
 impl<
-    A: Into<OptWidgetList>,
-    B: Into<OptWidgetList>,
-    C: Into<OptWidgetList>,
-    D: Into<OptWidgetList>,
-    E: Into<OptWidgetList>,
-    F: Into<OptWidgetList>,
-    G: Into<OptWidgetList>,
-    H: Into<OptWidgetList>,
-    I: Into<OptWidgetList>,
-    J: Into<OptWidgetList>,
-    K: Into<OptWidgetList>,
-    L: Into<OptWidgetList>,
-    M: Into<OptWidgetList>,
-    N: Into<OptWidgetList>,
-    O: Into<OptWidgetList>,
-    P: Into<OptWidgetList>,
-    Q: Into<OptWidgetList>,
-    R: Into<OptWidgetList>,
-> From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R)> for RowList
+        A: Into<OptWidgetList>,
+        B: Into<OptWidgetList>,
+        C: Into<OptWidgetList>,
+        D: Into<OptWidgetList>,
+        E: Into<OptWidgetList>,
+        F: Into<OptWidgetList>,
+        G: Into<OptWidgetList>,
+        H: Into<OptWidgetList>,
+        I: Into<OptWidgetList>,
+        J: Into<OptWidgetList>,
+        K: Into<OptWidgetList>,
+        L: Into<OptWidgetList>,
+        M: Into<OptWidgetList>,
+        N: Into<OptWidgetList>,
+        O: Into<OptWidgetList>,
+        P: Into<OptWidgetList>,
+        Q: Into<OptWidgetList>,
+        R: Into<OptWidgetList>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R)> for RowList
 {
     fn from(
         (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r): (
@@ -578,26 +579,26 @@ impl<
 }
 
 impl<
-    A: Into<OptWidgetList>,
-    B: Into<OptWidgetList>,
-    C: Into<OptWidgetList>,
-    D: Into<OptWidgetList>,
-    E: Into<OptWidgetList>,
-    F: Into<OptWidgetList>,
-    G: Into<OptWidgetList>,
-    H: Into<OptWidgetList>,
-    I: Into<OptWidgetList>,
-    J: Into<OptWidgetList>,
-    K: Into<OptWidgetList>,
-    L: Into<OptWidgetList>,
-    M: Into<OptWidgetList>,
-    N: Into<OptWidgetList>,
-    O: Into<OptWidgetList>,
-    P: Into<OptWidgetList>,
-    Q: Into<OptWidgetList>,
-    R: Into<OptWidgetList>,
-    S: Into<OptWidgetList>,
-> From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S)> for RowList
+        A: Into<OptWidgetList>,
+        B: Into<OptWidgetList>,
+        C: Into<OptWidgetList>,
+        D: Into<OptWidgetList>,
+        E: Into<OptWidgetList>,
+        F: Into<OptWidgetList>,
+        G: Into<OptWidgetList>,
+        H: Into<OptWidgetList>,
+        I: Into<OptWidgetList>,
+        J: Into<OptWidgetList>,
+        K: Into<OptWidgetList>,
+        L: Into<OptWidgetList>,
+        M: Into<OptWidgetList>,
+        N: Into<OptWidgetList>,
+        O: Into<OptWidgetList>,
+        P: Into<OptWidgetList>,
+        Q: Into<OptWidgetList>,
+        R: Into<OptWidgetList>,
+        S: Into<OptWidgetList>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S)> for RowList
 {
     fn from(
         (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s): (
@@ -647,27 +648,27 @@ impl<
 }
 
 impl<
-    A: Into<OptWidgetList>,
-    B: Into<OptWidgetList>,
-    C: Into<OptWidgetList>,
-    D: Into<OptWidgetList>,
-    E: Into<OptWidgetList>,
-    F: Into<OptWidgetList>,
-    G: Into<OptWidgetList>,
-    H: Into<OptWidgetList>,
-    I: Into<OptWidgetList>,
-    J: Into<OptWidgetList>,
-    K: Into<OptWidgetList>,
-    L: Into<OptWidgetList>,
-    M: Into<OptWidgetList>,
-    N: Into<OptWidgetList>,
-    O: Into<OptWidgetList>,
-    P: Into<OptWidgetList>,
-    Q: Into<OptWidgetList>,
-    R: Into<OptWidgetList>,
-    S: Into<OptWidgetList>,
-    T: Into<OptWidgetList>,
-> From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T)> for RowList
+        A: Into<OptWidgetList>,
+        B: Into<OptWidgetList>,
+        C: Into<OptWidgetList>,
+        D: Into<OptWidgetList>,
+        E: Into<OptWidgetList>,
+        F: Into<OptWidgetList>,
+        G: Into<OptWidgetList>,
+        H: Into<OptWidgetList>,
+        I: Into<OptWidgetList>,
+        J: Into<OptWidgetList>,
+        K: Into<OptWidgetList>,
+        L: Into<OptWidgetList>,
+        M: Into<OptWidgetList>,
+        N: Into<OptWidgetList>,
+        O: Into<OptWidgetList>,
+        P: Into<OptWidgetList>,
+        Q: Into<OptWidgetList>,
+        R: Into<OptWidgetList>,
+        S: Into<OptWidgetList>,
+        T: Into<OptWidgetList>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T)> for RowList
 {
     fn from(
         (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t): (

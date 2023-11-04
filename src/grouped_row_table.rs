@@ -1,8 +1,9 @@
 #![allow(clippy::many_single_char_names)]
 
 use serde::{Deserialize, Serialize};
-use crate::row_list::RowList;
+
 use crate::row_group_list::RowGroupList;
+use crate::row_list::RowList;
 
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct GroupedRowTable {
@@ -50,5 +51,5 @@ pub fn grouped_row_table(row_groups: impl Into<RowGroupList>) -> GroupedRowTable
 /// Pass a tuple of rows.
 /// For each row, pass a tuple of widgets or None.
 pub fn table(rows: impl Into<RowList>) -> GroupedRowTable {
-    GroupedRowTable::new((rows.into(), ))
+    GroupedRowTable::new((rows.into(),))
 }

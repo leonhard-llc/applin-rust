@@ -17,12 +17,14 @@ Documentation: <https://www.applin.dev/docs/>
 Examples: <https://github.com/leonhard-llc/applin-rust/tree/main/examples>
 
 # Try the Demo
+
 [bin/demo.rs](bin/demo.rs) runs at `https://rust-demo.applin.dev/` .
 You can install
 [Applin Tester from the App Store](https://apps.apple.com/us/app/applin-tester/id6464230000)
 and connect to the demo with this link: <applin:https://rust-demo.applin.dev/>.
 
 # Cargo Geiger Safety Report
+
 ```
 
 Metric output format: x/y
@@ -174,5 +176,7 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 0/538      0/15294      0/158  0/6     0/323  
 
 ```
+
 # Changelog
+
 - v0.1.0 - First published version

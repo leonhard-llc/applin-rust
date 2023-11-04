@@ -1,4 +1,5 @@
 use serde::{Deserialize, Serialize};
+
 use crate::{Allow, AutoCapitalize};
 
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]

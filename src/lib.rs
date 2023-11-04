@@ -27,30 +27,9 @@
 //! - v0.1.0 - First published version
 #![forbid(unsafe_code)]
 
-mod action;
-mod back_button;
-mod button;
-mod checkbox;
-mod column;
-mod empty;
-mod error_text;
-mod form;
-mod form_button;
-mod form_section;
-mod grouped_row_table;
-mod image;
-mod last_error_text;
-mod nav_button;
-pub mod opt_widget_list;
-mod page;
-mod real32;
-pub mod row_list;
-pub mod row_group_list;
-mod scroll;
-mod text;
-mod textfield;
-pub mod widget;
-pub mod widget_list;
+use std::fmt::Debug;
+
+use serde::{Deserialize, Serialize};
 
 pub use action::*;
 pub use back_button::*;
@@ -72,9 +51,30 @@ pub use scroll::*;
 pub use text::*;
 pub use textfield::*;
 
-use std::fmt::{Debug};
-use serde::{Deserialize, Serialize};
-use servlin::Response;
+mod action;
+mod back_button;
+mod button;
+mod checkbox;
+mod column;
+mod empty;
+mod error_text;
+mod form;
+mod form_button;
+mod form_section;
+mod grouped_row_table;
+mod image;
+mod last_error_text;
+mod nav_button;
+pub mod opt_widget_list;
+mod page;
+mod real32;
+pub mod row_group_list;
+pub mod row_list;
+mod scroll;
+mod text;
+mod textfield;
+pub mod widget;
+pub mod widget_list;
 
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct ApplinResponse {
@@ -89,8 +89,8 @@ pub fn applin_response(page: impl Into<Page>) -> Result<servlin::Response, servl
 }
 
 #[cfg(feature = "servlin")]
-pub fn client_error(msg: impl Into<String>) -> Response {
-    Response::text(400, msg.into())
+pub fn client_error(msg: impl Into<String>) -> servlin::Response {
+    servlin::Response::text(400, msg.into())
 }
 
 #[cfg(feature = "servlin")]

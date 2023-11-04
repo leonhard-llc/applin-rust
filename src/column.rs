@@ -1,7 +1,8 @@
 use serde::{Deserialize, Serialize};
-use crate::HAlignment;
+
 use crate::widget::Widget;
 use crate::widget_list::WidgetList;
+use crate::HAlignment;
 
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct Column {

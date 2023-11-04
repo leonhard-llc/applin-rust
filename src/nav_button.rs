@@ -1,4 +1,5 @@
 use serde::{Deserialize, Serialize};
+
 use crate::Action;
 
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
@@ -36,7 +37,8 @@ impl NavButton {
 
     /// Appends `actions`.
     #[must_use]
-    pub fn with_actions(mut self, actions: impl IntoIterator<Item=Action>) -> Self {
+    // TODO: Change actions to impl Into<Vec>.
+    pub fn with_actions(mut self, actions: impl IntoIterator<Item = Action>) -> Self {
         self.actions.extend(actions.into_iter());
         self
     }

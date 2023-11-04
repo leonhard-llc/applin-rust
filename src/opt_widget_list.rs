@@ -24,16 +24,19 @@ impl From<()> for OptWidgetList {
         OptWidgetList(vec![])
     }
 }
+
 impl<A: Into<Option<Widget>>> From<(A,)> for OptWidgetList {
     fn from((a,): (A,)) -> Self {
         OptWidgetList(vec![a.into()])
     }
 }
+
 impl<A: Into<Option<Widget>>, B: Into<Option<Widget>>> From<(A, B)> for OptWidgetList {
     fn from((a, b): (A, B)) -> Self {
         OptWidgetList(vec![a.into(), b.into()])
     }
 }
+
 impl<A: Into<Option<Widget>>, B: Into<Option<Widget>>, C: Into<Option<Widget>>> From<(A, B, C)>
     for OptWidgetList
 {
@@ -41,6 +44,7 @@ impl<A: Into<Option<Widget>>, B: Into<Option<Widget>>, C: Into<Option<Widget>>> 
         OptWidgetList(vec![a.into(), b.into(), c.into()])
     }
 }
+
 impl<
         A: Into<Option<Widget>>,
         B: Into<Option<Widget>>,
@@ -52,6 +56,7 @@ impl<
         OptWidgetList(vec![a.into(), b.into(), c.into(), d.into()])
     }
 }
+
 impl<
         A: Into<Option<Widget>>,
         B: Into<Option<Widget>>,
@@ -64,6 +69,7 @@ impl<
         OptWidgetList(vec![a.into(), b.into(), c.into(), d.into(), e.into()])
     }
 }
+
 impl<
         A: Into<Option<Widget>>,
         B: Into<Option<Widget>>,
@@ -84,6 +90,7 @@ impl<
         ])
     }
 }
+
 impl<
         A: Into<Option<Widget>>,
         B: Into<Option<Widget>>,
@@ -106,6 +113,7 @@ impl<
         ])
     }
 }
+
 impl<
         A: Into<Option<Widget>>,
         B: Into<Option<Widget>>,
@@ -130,6 +138,7 @@ impl<
         ])
     }
 }
+
 impl<
         A: Into<Option<Widget>>,
         B: Into<Option<Widget>>,
@@ -156,6 +165,7 @@ impl<
         ])
     }
 }
+
 impl<
         A: Into<Option<Widget>>,
         B: Into<Option<Widget>>,
@@ -184,6 +194,7 @@ impl<
         ])
     }
 }
+
 impl<
         A: Into<Option<Widget>>,
         B: Into<Option<Widget>>,
@@ -214,6 +225,7 @@ impl<
         ])
     }
 }
+
 impl<
         A: Into<Option<Widget>>,
         B: Into<Option<Widget>>,
@@ -246,6 +258,7 @@ impl<
         ])
     }
 }
+
 impl<
         A: Into<Option<Widget>>,
         B: Into<Option<Widget>>,
@@ -282,6 +295,7 @@ impl<
         ])
     }
 }
+
 impl<
         A: Into<Option<Widget>>,
         B: Into<Option<Widget>>,
@@ -320,6 +334,7 @@ impl<
         ])
     }
 }
+
 impl<
         A: Into<Option<Widget>>,
         B: Into<Option<Widget>>,
@@ -376,6 +391,7 @@ impl<
         ])
     }
 }
+
 impl<
         A: Into<Option<Widget>>,
         B: Into<Option<Widget>>,
@@ -435,6 +451,7 @@ impl<
         ])
     }
 }
+
 impl<
         A: Into<Option<Widget>>,
         B: Into<Option<Widget>>,
@@ -497,6 +514,7 @@ impl<
         ])
     }
 }
+
 impl<
         A: Into<Option<Widget>>,
         B: Into<Option<Widget>>,
@@ -562,6 +580,7 @@ impl<
         ])
     }
 }
+
 impl<
         A: Into<Option<Widget>>,
         B: Into<Option<Widget>>,
@@ -630,6 +649,7 @@ impl<
         ])
     }
 }
+
 impl<
         A: Into<Option<Widget>>,
         B: Into<Option<Widget>>,

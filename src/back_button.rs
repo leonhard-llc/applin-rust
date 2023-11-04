@@ -1,4 +1,5 @@
 use serde::{Deserialize, Serialize};
+
 use crate::Action;
 
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
@@ -7,5 +8,7 @@ pub struct BackButton {
 }
 
 pub fn back_button(actions: impl Into<Vec<Action>>) -> BackButton {
-    BackButton { actions: actions.into() }
+    BackButton {
+        actions: actions.into(),
+    }
 }

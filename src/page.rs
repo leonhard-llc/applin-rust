@@ -1,6 +1,7 @@
 use serde::{Deserialize, Serialize};
-use crate::{BackButton, empty};
+
 use crate::widget::Widget;
+use crate::{empty, BackButton};
 
 #[allow(clippy::large_enum_variant)]
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Serialize, Ord, PartialEq, PartialOrd)]

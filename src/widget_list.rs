@@ -5,6 +5,7 @@ use crate::widget::Widget;
 /// This struct converts a tuple of widget builders (`Into<Widget>`) to a vector of widgets.
 /// It supports tuples of length 0 through 20.
 pub struct WidgetList(pub Vec<Widget>);
+
 impl WidgetList {
     pub fn to_vec(self) -> Vec<Widget> {
         self.0
@@ -30,8 +31,8 @@ impl From<()> for WidgetList {
     }
 }
 
-impl<A: Into<Widget>> From<(A, )> for WidgetList {
-    fn from((a, ): (A, )) -> Self {
+impl<A: Into<Widget>> From<(A,)> for WidgetList {
+    fn from((a,): (A,)) -> Self {
         WidgetList(vec![a.into()])
     }
 }
@@ -49,7 +50,7 @@ impl<A: Into<Widget>, B: Into<Widget>, C: Into<Widget>> From<(A, B, C)> for Widg
 }
 
 impl<A: Into<Widget>, B: Into<Widget>, C: Into<Widget>, D: Into<Widget>> From<(A, B, C, D)>
-for WidgetList
+    for WidgetList
 {
     fn from((a, b, c, d): (A, B, C, D)) -> Self {
         WidgetList(vec![a.into(), b.into(), c.into(), d.into()])
@@ -57,7 +58,7 @@ for WidgetList
 }
 
 impl<A: Into<Widget>, B: Into<Widget>, C: Into<Widget>, D: Into<Widget>, E: Into<Widget>>
-From<(A, B, C, D, E)> for WidgetList
+    From<(A, B, C, D, E)> for WidgetList
 {
     fn from((a, b, c, d, e): (A, B, C, D, E)) -> Self {
         WidgetList(vec![a.into(), b.into(), c.into(), d.into(), e.into()])
@@ -65,13 +66,13 @@ From<(A, B, C, D, E)> for WidgetList
 }
 
 impl<
-    A: Into<Widget>,
-    B: Into<Widget>,
-    C: Into<Widget>,
-    D: Into<Widget>,
-    E: Into<Widget>,
-    F: Into<Widget>,
-> From<(A, B, C, D, E, F)> for WidgetList
+        A: Into<Widget>,
+        B: Into<Widget>,
+        C: Into<Widget>,
+        D: Into<Widget>,
+        E: Into<Widget>,
+        F: Into<Widget>,
+    > From<(A, B, C, D, E, F)> for WidgetList
 {
     fn from((a, b, c, d, e, f): (A, B, C, D, E, F)) -> Self {
         WidgetList(vec![
@@ -86,14 +87,14 @@ impl<
 }
 
 impl<
-    A: Into<Widget>,
-    B: Into<Widget>,
-    C: Into<Widget>,
-    D: Into<Widget>,
-    E: Into<Widget>,
-    F: Into<Widget>,
-    G: Into<Widget>,
-> From<(A, B, C, D, E, F, G)> for WidgetList
+        A: Into<Widget>,
+        B: Into<Widget>,
+        C: Into<Widget>,
+        D: Into<Widget>,
+        E: Into<Widget>,
+        F: Into<Widget>,
+        G: Into<Widget>,
+    > From<(A, B, C, D, E, F, G)> for WidgetList
 {
     fn from((a, b, c, d, e, f, g): (A, B, C, D, E, F, G)) -> Self {
         WidgetList(vec![
@@ -109,15 +110,15 @@ impl<
 }
 
 impl<
-    A: Into<Widget>,
-    B: Into<Widget>,
-    C: Into<Widget>,
-    D: Into<Widget>,
-    E: Into<Widget>,
-    F: Into<Widget>,
-    G: Into<Widget>,
-    H: Into<Widget>,
-> From<(A, B, C, D, E, F, G, H)> for WidgetList
+        A: Into<Widget>,
+        B: Into<Widget>,
+        C: Into<Widget>,
+        D: Into<Widget>,
+        E: Into<Widget>,
+        F: Into<Widget>,
+        G: Into<Widget>,
+        H: Into<Widget>,
+    > From<(A, B, C, D, E, F, G, H)> for WidgetList
 {
     fn from((a, b, c, d, e, f, g, h): (A, B, C, D, E, F, G, H)) -> Self {
         WidgetList(vec![
@@ -134,16 +135,16 @@ impl<
 }
 
 impl<
-    A: Into<Widget>,
-    B: Into<Widget>,
-    C: Into<Widget>,
-    D: Into<Widget>,
-    E: Into<Widget>,
-    F: Into<Widget>,
-    G: Into<Widget>,
-    H: Into<Widget>,
-    I: Into<Widget>,
-> From<(A, B, C, D, E, F, G, H, I)> for WidgetList
+        A: Into<Widget>,
+        B: Into<Widget>,
+        C: Into<Widget>,
+        D: Into<Widget>,
+        E: Into<Widget>,
+        F: Into<Widget>,
+        G: Into<Widget>,
+        H: Into<Widget>,
+        I: Into<Widget>,
+    > From<(A, B, C, D, E, F, G, H, I)> for WidgetList
 {
     fn from((a, b, c, d, e, f, g, h, i): (A, B, C, D, E, F, G, H, I)) -> Self {
         WidgetList(vec![
@@ -161,17 +162,17 @@ impl<
 }
 
 impl<
-    A: Into<Widget>,
-    B: Into<Widget>,
-    C: Into<Widget>,
-    D: Into<Widget>,
-    E: Into<Widget>,
-    F: Into<Widget>,
-    G: Into<Widget>,
-    H: Into<Widget>,
-    I: Into<Widget>,
-    J: Into<Widget>,
-> From<(A, B, C, D, E, F, G, H, I, J)> for WidgetList
+        A: Into<Widget>,
+        B: Into<Widget>,
+        C: Into<Widget>,
+        D: Into<Widget>,
+        E: Into<Widget>,
+        F: Into<Widget>,
+        G: Into<Widget>,
+        H: Into<Widget>,
+        I: Into<Widget>,
+        J: Into<Widget>,
+    > From<(A, B, C, D, E, F, G, H, I, J)> for WidgetList
 {
     fn from((a, b, c, d, e, f, g, h, i, j): (A, B, C, D, E, F, G, H, I, J)) -> Self {
         WidgetList(vec![
@@ -190,18 +191,18 @@ impl<
 }
 
 impl<
-    A: Into<Widget>,
-    B: Into<Widget>,
-    C: Into<Widget>,
-    D: Into<Widget>,
-    E: Into<Widget>,
-    F: Into<Widget>,
-    G: Into<Widget>,
-    H: Into<Widget>,
-    I: Into<Widget>,
-    J: Into<Widget>,
-    K: Into<Widget>,
-> From<(A, B, C, D, E, F, G, H, I, J, K)> for WidgetList
+        A: Into<Widget>,
+        B: Into<Widget>,
+        C: Into<Widget>,
+        D: Into<Widget>,
+        E: Into<Widget>,
+        F: Into<Widget>,
+        G: Into<Widget>,
+        H: Into<Widget>,
+        I: Into<Widget>,
+        J: Into<Widget>,
+        K: Into<Widget>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K)> for WidgetList
 {
     fn from((a, b, c, d, e, f, g, h, i, j, k): (A, B, C, D, E, F, G, H, I, J, K)) -> Self {
         WidgetList(vec![
@@ -221,19 +222,19 @@ impl<
 }
 
 impl<
-    A: Into<Widget>,
-    B: Into<Widget>,
-    C: Into<Widget>,
-    D: Into<Widget>,
-    E: Into<Widget>,
-    F: Into<Widget>,
-    G: Into<Widget>,
-    H: Into<Widget>,
-    I: Into<Widget>,
-    J: Into<Widget>,
-    K: Into<Widget>,
-    L: Into<Widget>,
-> From<(A, B, C, D, E, F, G, H, I, J, K, L)> for WidgetList
+        A: Into<Widget>,
+        B: Into<Widget>,
+        C: Into<Widget>,
+        D: Into<Widget>,
+        E: Into<Widget>,
+        F: Into<Widget>,
+        G: Into<Widget>,
+        H: Into<Widget>,
+        I: Into<Widget>,
+        J: Into<Widget>,
+        K: Into<Widget>,
+        L: Into<Widget>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L)> for WidgetList
 {
     fn from((a, b, c, d, e, f, g, h, i, j, k, l): (A, B, C, D, E, F, G, H, I, J, K, L)) -> Self {
         WidgetList(vec![
@@ -254,20 +255,20 @@ impl<
 }
 
 impl<
-    A: Into<Widget>,
-    B: Into<Widget>,
-    C: Into<Widget>,
-    D: Into<Widget>,
-    E: Into<Widget>,
-    F: Into<Widget>,
-    G: Into<Widget>,
-    H: Into<Widget>,
-    I: Into<Widget>,
-    J: Into<Widget>,
-    K: Into<Widget>,
-    L: Into<Widget>,
-    M: Into<Widget>,
-> From<(A, B, C, D, E, F, G, H, I, J, K, L, M)> for WidgetList
+        A: Into<Widget>,
+        B: Into<Widget>,
+        C: Into<Widget>,
+        D: Into<Widget>,
+        E: Into<Widget>,
+        F: Into<Widget>,
+        G: Into<Widget>,
+        H: Into<Widget>,
+        I: Into<Widget>,
+        J: Into<Widget>,
+        K: Into<Widget>,
+        L: Into<Widget>,
+        M: Into<Widget>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M)> for WidgetList
 {
     fn from(
         (a, b, c, d, e, f, g, h, i, j, k, l, m): (A, B, C, D, E, F, G, H, I, J, K, L, M),
@@ -291,21 +292,21 @@ impl<
 }
 
 impl<
-    A: Into<Widget>,
-    B: Into<Widget>,
-    C: Into<Widget>,
-    D: Into<Widget>,
-    E: Into<Widget>,
-    F: Into<Widget>,
-    G: Into<Widget>,
-    H: Into<Widget>,
-    I: Into<Widget>,
-    J: Into<Widget>,
-    K: Into<Widget>,
-    L: Into<Widget>,
-    M: Into<Widget>,
-    N: Into<Widget>,
-> From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N)> for WidgetList
+        A: Into<Widget>,
+        B: Into<Widget>,
+        C: Into<Widget>,
+        D: Into<Widget>,
+        E: Into<Widget>,
+        F: Into<Widget>,
+        G: Into<Widget>,
+        H: Into<Widget>,
+        I: Into<Widget>,
+        J: Into<Widget>,
+        K: Into<Widget>,
+        L: Into<Widget>,
+        M: Into<Widget>,
+        N: Into<Widget>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N)> for WidgetList
 {
     fn from(
         (a, b, c, d, e, f, g, h, i, j, k, l, m, n): (A, B, C, D, E, F, G, H, I, J, K, L, M, N),
@@ -330,22 +331,22 @@ impl<
 }
 
 impl<
-    A: Into<Widget>,
-    B: Into<Widget>,
-    C: Into<Widget>,
-    D: Into<Widget>,
-    E: Into<Widget>,
-    F: Into<Widget>,
-    G: Into<Widget>,
-    H: Into<Widget>,
-    I: Into<Widget>,
-    J: Into<Widget>,
-    K: Into<Widget>,
-    L: Into<Widget>,
-    M: Into<Widget>,
-    N: Into<Widget>,
-    O: Into<Widget>,
-> From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O)> for WidgetList
+        A: Into<Widget>,
+        B: Into<Widget>,
+        C: Into<Widget>,
+        D: Into<Widget>,
+        E: Into<Widget>,
+        F: Into<Widget>,
+        G: Into<Widget>,
+        H: Into<Widget>,
+        I: Into<Widget>,
+        J: Into<Widget>,
+        K: Into<Widget>,
+        L: Into<Widget>,
+        M: Into<Widget>,
+        N: Into<Widget>,
+        O: Into<Widget>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O)> for WidgetList
 {
     fn from(
         (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o): (
@@ -387,23 +388,23 @@ impl<
 }
 
 impl<
-    A: Into<Widget>,
-    B: Into<Widget>,
-    C: Into<Widget>,
-    D: Into<Widget>,
-    E: Into<Widget>,
-    F: Into<Widget>,
-    G: Into<Widget>,
-    H: Into<Widget>,
-    I: Into<Widget>,
-    J: Into<Widget>,
-    K: Into<Widget>,
-    L: Into<Widget>,
-    M: Into<Widget>,
-    N: Into<Widget>,
-    O: Into<Widget>,
-    P: Into<Widget>,
-> From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P)> for WidgetList
+        A: Into<Widget>,
+        B: Into<Widget>,
+        C: Into<Widget>,
+        D: Into<Widget>,
+        E: Into<Widget>,
+        F: Into<Widget>,
+        G: Into<Widget>,
+        H: Into<Widget>,
+        I: Into<Widget>,
+        J: Into<Widget>,
+        K: Into<Widget>,
+        L: Into<Widget>,
+        M: Into<Widget>,
+        N: Into<Widget>,
+        O: Into<Widget>,
+        P: Into<Widget>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P)> for WidgetList
 {
     fn from(
         (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p): (
@@ -447,24 +448,24 @@ impl<
 }
 
 impl<
-    A: Into<Widget>,
-    B: Into<Widget>,
-    C: Into<Widget>,
-    D: Into<Widget>,
-    E: Into<Widget>,
-    F: Into<Widget>,
-    G: Into<Widget>,
-    H: Into<Widget>,
-    I: Into<Widget>,
-    J: Into<Widget>,
-    K: Into<Widget>,
-    L: Into<Widget>,
-    M: Into<Widget>,
-    N: Into<Widget>,
-    O: Into<Widget>,
-    P: Into<Widget>,
-    Q: Into<Widget>,
-> From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q)> for WidgetList
+        A: Into<Widget>,
+        B: Into<Widget>,
+        C: Into<Widget>,
+        D: Into<Widget>,
+        E: Into<Widget>,
+        F: Into<Widget>,
+        G: Into<Widget>,
+        H: Into<Widget>,
+        I: Into<Widget>,
+        J: Into<Widget>,
+        K: Into<Widget>,
+        L: Into<Widget>,
+        M: Into<Widget>,
+        N: Into<Widget>,
+        O: Into<Widget>,
+        P: Into<Widget>,
+        Q: Into<Widget>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q)> for WidgetList
 {
     fn from(
         (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q): (
@@ -510,25 +511,25 @@ impl<
 }
 
 impl<
-    A: Into<Widget>,
-    B: Into<Widget>,
-    C: Into<Widget>,
-    D: Into<Widget>,
-    E: Into<Widget>,
-    F: Into<Widget>,
-    G: Into<Widget>,
-    H: Into<Widget>,
-    I: Into<Widget>,
-    J: Into<Widget>,
-    K: Into<Widget>,
-    L: Into<Widget>,
-    M: Into<Widget>,
-    N: Into<Widget>,
-    O: Into<Widget>,
-    P: Into<Widget>,
-    Q: Into<Widget>,
-    R: Into<Widget>,
-> From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R)> for WidgetList
+        A: Into<Widget>,
+        B: Into<Widget>,
+        C: Into<Widget>,
+        D: Into<Widget>,
+        E: Into<Widget>,
+        F: Into<Widget>,
+        G: Into<Widget>,
+        H: Into<Widget>,
+        I: Into<Widget>,
+        J: Into<Widget>,
+        K: Into<Widget>,
+        L: Into<Widget>,
+        M: Into<Widget>,
+        N: Into<Widget>,
+        O: Into<Widget>,
+        P: Into<Widget>,
+        Q: Into<Widget>,
+        R: Into<Widget>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R)> for WidgetList
 {
     fn from(
         (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r): (
@@ -576,26 +577,26 @@ impl<
 }
 
 impl<
-    A: Into<Widget>,
-    B: Into<Widget>,
-    C: Into<Widget>,
-    D: Into<Widget>,
-    E: Into<Widget>,
-    F: Into<Widget>,
-    G: Into<Widget>,
-    H: Into<Widget>,
-    I: Into<Widget>,
-    J: Into<Widget>,
-    K: Into<Widget>,
-    L: Into<Widget>,
-    M: Into<Widget>,
-    N: Into<Widget>,
-    O: Into<Widget>,
-    P: Into<Widget>,
-    Q: Into<Widget>,
-    R: Into<Widget>,
-    S: Into<Widget>,
-> From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S)> for WidgetList
+        A: Into<Widget>,
+        B: Into<Widget>,
+        C: Into<Widget>,
+        D: Into<Widget>,
+        E: Into<Widget>,
+        F: Into<Widget>,
+        G: Into<Widget>,
+        H: Into<Widget>,
+        I: Into<Widget>,
+        J: Into<Widget>,
+        K: Into<Widget>,
+        L: Into<Widget>,
+        M: Into<Widget>,
+        N: Into<Widget>,
+        O: Into<Widget>,
+        P: Into<Widget>,
+        Q: Into<Widget>,
+        R: Into<Widget>,
+        S: Into<Widget>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S)> for WidgetList
 {
     fn from(
         (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s): (
@@ -645,27 +646,27 @@ impl<
 }
 
 impl<
-    A: Into<Widget>,
-    B: Into<Widget>,
-    C: Into<Widget>,
-    D: Into<Widget>,
-    E: Into<Widget>,
-    F: Into<Widget>,
-    G: Into<Widget>,
-    H: Into<Widget>,
-    I: Into<Widget>,
-    J: Into<Widget>,
-    K: Into<Widget>,
-    L: Into<Widget>,
-    M: Into<Widget>,
-    N: Into<Widget>,
-    O: Into<Widget>,
-    P: Into<Widget>,
-    Q: Into<Widget>,
-    R: Into<Widget>,
-    S: Into<Widget>,
-    T: Into<Widget>,
-> From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T)> for WidgetList
+        A: Into<Widget>,
+        B: Into<Widget>,
+        C: Into<Widget>,
+        D: Into<Widget>,
+        E: Into<Widget>,
+        F: Into<Widget>,
+        G: Into<Widget>,
+        H: Into<Widget>,
+        I: Into<Widget>,
+        J: Into<Widget>,
+        K: Into<Widget>,
+        L: Into<Widget>,
+        M: Into<Widget>,
+        N: Into<Widget>,
+        O: Into<Widget>,
+        P: Into<Widget>,
+        Q: Into<Widget>,
+        R: Into<Widget>,
+        S: Into<Widget>,
+        T: Into<Widget>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T)> for WidgetList
 {
     fn from(
         (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t): (

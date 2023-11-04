@@ -1,11 +1,13 @@
-use serde::{Deserialize, Deserializer, Serialize};
 use std::cmp::Ordering;
 use std::hash::{Hash, Hasher};
 use std::num::FpCategory;
 
+use serde::{Deserialize, Deserializer, Serialize};
+
 /// A 32-bit floating point number that cannot be NaN, infinity, or negative zero.
 #[derive(Clone, Debug, Serialize)]
 pub struct Real32(f32);
+
 impl Real32 {
     /// Silently changes `-0.0` into `0.0`.
     ///
@@ -21,6 +23,7 @@ impl Real32 {
         self.0
     }
 }
+
 impl TryFrom<f32> for Real32 {
     type Error = String;
 
@@ -36,22 +39,27 @@ impl TryFrom<f32> for Real32 {
         }
     }
 }
+
 impl PartialEq for Real32 {
     fn eq(&self, other: &Self) -> bool {
         self.0.total_cmp(&other.0) == Ordering::Equal
     }
 }
+
 impl Eq for Real32 {}
+
 impl PartialOrd for Real32 {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.0.total_cmp(&other.0))
     }
 }
+
 impl Ord for Real32 {
     fn cmp(&self, other: &Self) -> Ordering {
         self.0.total_cmp(&other.0)
     }
 }
+
 impl Hash for Real32 {
     fn hash<H: Hasher>(&self, state: &mut H) {
         match self.0.classify() {
@@ -63,6 +71,7 @@ impl Hash for Real32 {
         }
     }
 }
+
 impl<'de> Deserialize<'de> for Real32 {
     fn deserialize<D>(deserializer: D) -> Result<Real32, D::Error>
     where

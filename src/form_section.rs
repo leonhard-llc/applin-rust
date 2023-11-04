@@ -1,4 +1,5 @@
 use serde::{Deserialize, Serialize};
+
 use crate::widget::Widget;
 use crate::widget_list::WidgetList;
 
