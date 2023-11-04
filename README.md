@@ -17,14 +17,12 @@ Documentation: <https://www.applin.dev/docs/>
 Examples: <https://github.com/leonhard-llc/applin-rust/tree/main/examples>
 
 # Try the Demo
-
 [bin/demo.rs](bin/demo.rs) runs at `https://rust-demo.applin.dev/` .
 You can install
 [Applin Tester from the App Store](https://apps.apple.com/us/app/applin-tester/id6464230000)
 and connect to the demo with this link: <applin:https://rust-demo.applin.dev/>.
 
 # Cargo Geiger Safety Report
-
 ```
 
 Metric output format: x/y
@@ -51,8 +49,6 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 0/0        0/4          0/0    0/0     0/0      ❓  │           └── unicode-ident 1.0.12
 0/0        0/0          0/0    0/0     0/0      🔒  └── servlin 0.4.0
 0/0        0/4          0/0    0/0     0/2      ❓      ├── async-fs 1.6.0
-                                                           │   [build-dependencies]
-0/0        0/0          0/0    0/0     0/0      ❓      │   └── autocfg 1.1.0
 0/4        0/230        0/40   0/0     0/12     ❓      │   ├── async-lock 2.8.0
 0/0        0/116        0/8    0/0     0/0      ❓      │   │   └── event-listener 2.5.3
 0/0        0/0          0/0    0/0     0/0      🔒      │   ├── blocking 1.4.1
@@ -86,10 +82,10 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 0/0        0/96         0/5    0/0     0/2      ❓      │   │       └── tracing-core 0.1.32
 0/0        0/121        0/9    0/0     0/4      ❓      │   │           └── once_cell 1.18.0
 0/0        0/0          0/0    0/0     0/0      ❓      │   └── futures-lite 1.13.0
+                                                           │   [build-dependencies]
+0/0        0/0          0/0    0/0     0/0      ❓      │   └── autocfg 1.1.0
 0/0        0/0          0/0    0/0     0/0      🔒      ├── async-net 1.8.0
 0/0        0/4          0/0    0/0     0/0      ❓      │   ├── async-io 1.13.0
-                                                           │   │   [build-dependencies]
-0/0        0/0          0/0    0/0     0/0      ❓      │   │   └── autocfg 1.1.0
 0/4        0/230        0/40   0/0     0/12     ❓      │   │   ├── async-lock 2.8.0
 0/0        0/0          0/0    0/0     0/0      ❓      │   │   ├── cfg-if 1.0.0
 0/0        0/170        0/2    0/0     0/1      ❓      │   │   ├── concurrent-queue 2.3.0
@@ -97,11 +93,11 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 0/2        0/20         0/1    0/0     0/0      ❓      │   │   ├── log 0.4.20
 0/0        0/0          0/0    0/0     0/0      🔒      │   │   ├── parking 2.2.0
 0/1        0/250        0/16   0/4     0/5      ❓      │   │   ├── polling 2.8.0
-                                                           │   │   │   [build-dependencies]
-0/0        0/0          0/0    0/0     0/0      ❓      │   │   │   └── autocfg 1.1.0
 0/0        0/0          0/0    0/0     0/0      ❓      │   │   │   ├── cfg-if 1.0.0
 0/90       0/554        0/2    0/0     0/55     ❓      │   │   │   ├── libc 0.2.149
 0/2        0/20         0/1    0/0     0/0      ❓      │   │   │   └── log 0.4.20
+                                                           │   │   │   [build-dependencies]
+0/0        0/0          0/0    0/0     0/0      ❓      │   │   │   └── autocfg 1.1.0
 0/371      0/6661       0/2    0/0     0/22     ❓      │   │   ├── rustix 0.37.27
 0/0        0/0          0/0    0/0     0/0      ❓      │   │   │   ├── bitflags 1.3.2
 0/0        0/100        0/0    0/0     0/0      ❓      │   │   │   ├── errno 0.3.5
@@ -118,6 +114,8 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 0/0        0/0          0/0    0/0     0/0      ❓      │   │   │   └── autocfg 1.1.0
 0/6        0/675        0/4    0/0     0/4      ❓      │   │   ├── socket2 0.4.10
 0/0        0/0          0/0    0/0     0/0      🔒      │   │   └── waker-fn 1.1.1
+                                                           │   │   [build-dependencies]
+0/0        0/0          0/0    0/0     0/0      ❓      │   │   └── autocfg 1.1.0
 0/0        0/0          0/0    0/0     0/0      🔒      │   ├── blocking 1.4.1
 0/0        0/0          0/0    0/0     0/0      ❓      │   └── futures-lite 1.13.0
 0/0        0/0          0/0    0/0     0/0      🔒      ├── fixed-buffer 0.5.0
@@ -176,7 +174,5 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 0/538      0/15294      0/158  0/6     0/323  
 
 ```
-
 # Changelog
-
 - v0.1.0 - First published version
