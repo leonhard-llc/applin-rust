@@ -150,7 +150,7 @@ pub enum HAlignment {
 
 impl Default for HAlignment {
     fn default() -> Self {
-        Self::Start
+        Self::Center
     }
 }
 

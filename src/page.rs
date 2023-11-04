@@ -87,6 +87,12 @@ impl NavPage {
     }
 
     #[must_use]
+    pub fn with_empty_start(mut self) -> Self {
+        self.start = Some(empty().into());
+        self
+    }
+
+    #[must_use]
     pub fn with_stream(mut self) -> Self {
         self.stream = true;
         self

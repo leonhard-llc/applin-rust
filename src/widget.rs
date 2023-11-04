@@ -129,12 +129,108 @@ impl From<Scroll> for Widget {
 
 impl From<Text> for Widget {
     fn from(src: Text) -> Self {
-        Self::Text(src)
+        Widget::Text(src)
     }
 }
 
 impl From<Textfield> for Widget {
     fn from(src: Textfield) -> Self {
-        Self::Textfield(src)
+        Widget::Textfield(src)
+    }
+}
+
+impl From<BackButton> for Option<Widget> {
+    fn from(src: BackButton) -> Self {
+        Some(Widget::BackButton(src))
+    }
+}
+
+impl From<Button> for Option<Widget> {
+    fn from(src: Button) -> Self {
+        Some(Widget::Button(src))
+    }
+}
+
+impl From<Checkbox> for Option<Widget> {
+    fn from(src: Checkbox) -> Self {
+        Some(Widget::Checkbox(src))
+    }
+}
+
+impl From<Column> for Option<Widget> {
+    fn from(src: Column) -> Self {
+        Some(Widget::Column(src))
+    }
+}
+
+impl From<Empty> for Option<Widget> {
+    fn from(src: Empty) -> Self {
+        Some(Widget::Empty(src))
+    }
+}
+
+impl From<ErrorText> for Option<Widget> {
+    fn from(src: ErrorText) -> Self {
+        Some(Widget::ErrorText(src))
+    }
+}
+
+impl From<Form> for Option<Widget> {
+    fn from(src: Form) -> Self {
+        Some(Widget::Form(src))
+    }
+}
+
+impl From<FormButton> for Option<Widget> {
+    fn from(src: FormButton) -> Self {
+        Some(Widget::FormButton(src))
+    }
+}
+
+impl From<FormSection> for Option<Widget> {
+    fn from(src: FormSection) -> Self {
+        Some(Widget::FormSection(src))
+    }
+}
+
+impl From<GroupedRowTable> for Option<Widget> {
+    fn from(src: GroupedRowTable) -> Self {
+        Some(Widget::GroupedRowTable(src))
+    }
+}
+
+impl From<Image> for Option<Widget> {
+    fn from(src: Image) -> Self {
+        Some(Widget::Image(src))
+    }
+}
+
+impl From<LastErrorText> for Option<Widget> {
+    fn from(src: LastErrorText) -> Self {
+        Some(Widget::LastErrorText(src))
+    }
+}
+
+impl From<NavButton> for Option<Widget> {
+    fn from(src: NavButton) -> Self {
+        Some(Widget::NavButton(src))
+    }
+}
+
+impl From<Scroll> for Option<Widget> {
+    fn from(src: Scroll) -> Self {
+        Some(Widget::Scroll(src))
+    }
+}
+
+impl From<Text> for Option<Widget> {
+    fn from(src: Text) -> Self {
+        Some(Widget::Text(src))
+    }
+}
+
+impl From<Textfield> for Option<Widget> {
+    fn from(src: Textfield) -> Self {
+        Some(Widget::Textfield(src))
     }
 }

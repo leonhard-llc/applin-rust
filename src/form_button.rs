@@ -39,6 +39,12 @@ impl FormButton {
     }
 
     #[must_use]
+    pub fn with_align(mut self, x: HAlignment) -> Self {
+        self.align = x;
+        self
+    }
+
+    #[must_use]
     pub fn with_is_destructive(mut self, value: bool) -> Self {
         self.is_destructive = value;
         self

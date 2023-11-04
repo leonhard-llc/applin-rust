@@ -26,11 +26,6 @@ pub fn logout() -> Action {
 }
 
 #[must_use]
-pub fn nothing() -> Action {
-    Action("nothing".into())
-}
-
-#[must_use]
 pub fn poll() -> Action {
     Action("poll".into())
 }

@@ -51,8 +51,8 @@ impl Textfield {
     }
 
     #[must_use]
-    pub fn with_auto_capitalize(mut self, x: Option<AutoCapitalize>) -> Self {
-        self.auto_capitalize = x;
+    pub fn with_auto_capitalize(mut self, x: AutoCapitalize) -> Self {
+        self.auto_capitalize = Some(x);
         self
     }
 
