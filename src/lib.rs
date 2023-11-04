@@ -14,13 +14,7 @@
 //!
 //! Documentation: <https://www.applin.dev/docs/>
 //!
-//! Examples: <https://github.com/leonhard-llc/applin-rust/tree/main/examples>
-//!
-//! # Try the Demo
-//! [bin/demo.rs](bin/demo.rs) runs at `https://rust-demo.applin.dev/` .
-//! You can install
-//! [Applin Tester from the App Store](https://apps.apple.com/us/app/applin-tester/id6464230000)
-//! and connect to the demo with this link: <applin:https://rust-demo.applin.dev/>.
+//! Example and live demo: <https://github.com/leonhard-llc/applin-rust-demo>
 //!
 //! # Cargo Geiger Safety Report
 //! # Changelog

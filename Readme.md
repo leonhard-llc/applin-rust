@@ -14,13 +14,7 @@ And use this library for the backend.
 
 Documentation: <https://www.applin.dev/docs/>
 
-Examples: <https://github.com/leonhard-llc/applin-rust/tree/main/examples>
-
-# Try the Demo
-[bin/demo.rs](bin/demo.rs) runs at `https://rust-demo.applin.dev/` .
-You can install
-[Applin Tester from the App Store](https://apps.apple.com/us/app/applin-tester/id6464230000)
-and connect to the demo with this link: <applin:https://rust-demo.applin.dev/>.
+Example and live demo: <https://github.com/leonhard-llc/applin-rust-demo>
 
 # Cargo Geiger Safety Report
 ```
@@ -95,11 +89,11 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 0/2        0/20         0/1    0/0     0/0      ❓      │   │   ├── log 0.4.20
 0/0        0/0          0/0    0/0     0/0      🔒      │   │   ├── parking 2.2.0
 0/1        0/250        0/16   0/4     0/5      ❓      │   │   ├── polling 2.8.0
-                                                           │   │   │   [build-dependencies]
-0/0        0/0          0/0    0/0     0/0      ❓      │   │   │   └── autocfg 1.1.0
 0/0        0/0          0/0    0/0     0/0      ❓      │   │   │   ├── cfg-if 1.0.0
 0/90       0/554        0/2    0/0     0/55     ❓      │   │   │   ├── libc 0.2.149
 0/2        0/20         0/1    0/0     0/0      ❓      │   │   │   └── log 0.4.20
+                                                           │   │   │   [build-dependencies]
+0/0        0/0          0/0    0/0     0/0      ❓      │   │   │   └── autocfg 1.1.0
 0/371      0/6661       0/2    0/0     0/22     ❓      │   │   ├── rustix 0.37.27
 0/0        0/0          0/0    0/0     0/0      ❓      │   │   │   ├── bitflags 1.3.2
 0/0        0/100        0/0    0/0     0/0      ❓      │   │   │   ├── errno 0.3.5
