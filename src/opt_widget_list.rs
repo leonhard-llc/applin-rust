@@ -20,7 +20,7 @@ impl From<Vec<Option<Widget>>> for OptWidgetList {
 
 // From tuples of length 0 through 20.
 impl From<()> for OptWidgetList {
-    fn from(_: ()) -> Self {
+    fn from((): ()) -> Self {
         OptWidgetList(vec![])
     }
 }

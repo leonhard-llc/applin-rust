@@ -64,7 +64,7 @@ impl Textfield {
 
     #[must_use]
     pub fn with_opt_error(mut self, x: Option<impl Into<String>>) -> Self {
-        self.error = x.map(|s| s.into()).unwrap_or(String::new());
+        self.error = x.map_or(String::new(), Into::into);
         self
     }
 
@@ -76,7 +76,7 @@ impl Textfield {
 
     #[must_use]
     pub fn with_opt_initial(mut self, opt_initial: Option<impl Into<String>>) -> Self {
-        self.initial_string = opt_initial.map(|s| s.into()).unwrap_or(String::new());
+        self.initial_string = opt_initial.map_or(String::new(), Into::into);
         self
     }
 

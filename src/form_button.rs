@@ -34,7 +34,7 @@ impl FormButton {
     /// Appends `actions`.
     #[must_use]
     pub fn with_actions(mut self, actions: impl IntoIterator<Item = Action>) -> Self {
-        self.actions.extend(actions.into_iter());
+        self.actions.extend(actions);
         self
     }
 

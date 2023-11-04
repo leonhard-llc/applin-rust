@@ -19,19 +19,19 @@ struct State {}
 //         .unwrap())
 // }
 
-fn index(_state: Arc<State>, _req: Request) -> Result<Response, Error> {
-    Ok(applin_response(
-        nav_page("Applin Rust Demo", text("Hello!")).with_start(back_button([pop()])),
-    )
-    .unwrap())
+fn index() -> Response {
+    applin_response(nav_page("Applin Rust Demo", text("Hello!")).with_start(back_button([pop()])))
+        .unwrap()
 }
 
-fn handle_req(state: Arc<State>, req: Request) -> Result<Response, Error> {
+#[allow(clippy::needless_pass_by_value)]
+fn handle_req(_state: Arc<State>, req: Request) -> Result<Response, Error> {
     match (req.method(), req.url().path()) {
         ("GET", "/healthz") => Ok(Response::text(200, "success")),
         ("GET", "/ok") => Ok(Response::new(200)),
-        ("GET", "/error") => Ok(user_error("example error")),
-        ("GET", "/") => index(state, req),
+        ("GET", "/user_error") => Ok(user_error("example error")),
+        ("GET", "/server_error") => Err(Error::server_error("server error")),
+        ("GET", "/") => Ok(index()),
         _ => Ok(Response::text(404, "Not found")),
     }
 }

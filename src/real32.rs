@@ -50,7 +50,7 @@ impl Eq for Real32 {}
 
 impl PartialOrd for Real32 {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-        Some(self.0.total_cmp(&other.0))
+        Some(self.cmp(other))
     }
 }
 

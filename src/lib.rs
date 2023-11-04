@@ -81,6 +81,8 @@ pub struct ApplinResponse {
     pub page: Page,
 }
 
+/// # Errors
+/// Returns an error when it fails to convert `page` to JSON.
 #[cfg(feature = "servlin")]
 pub fn applin_response(page: impl Into<Page>) -> Result<servlin::Response, servlin::Error> {
     let response = ApplinResponse { page: page.into() };

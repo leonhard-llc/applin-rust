@@ -7,6 +7,7 @@ use crate::row_list::RowList;
 pub struct RowGroupList(pub Vec<RowList>);
 
 impl RowGroupList {
+    #[must_use]
     pub fn to_vec(self) -> Vec<RowList> {
         self.0
     }
@@ -20,7 +21,7 @@ impl From<Vec<RowList>> for RowGroupList {
 
 // From tuples of length 0 through 20.
 impl From<()> for RowGroupList {
-    fn from(_: ()) -> Self {
+    fn from((): ()) -> Self {
         RowGroupList(vec![])
     }
 }

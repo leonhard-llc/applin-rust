@@ -1,3 +1,4 @@
+#![allow(clippy::many_single_char_names)]
 use serde::{Deserialize, Serialize};
 
 use crate::opt_widget_list::OptWidgetList;
@@ -11,7 +12,7 @@ pub struct RowList(pub Vec<Vec<Option<Widget>>>);
 
 // From tuples of length 0 through 20.
 impl From<()> for RowList {
-    fn from(_: ()) -> Self {
+    fn from((): ()) -> Self {
         RowList(vec![])
     }
 }

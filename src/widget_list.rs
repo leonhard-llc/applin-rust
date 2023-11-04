@@ -7,6 +7,7 @@ use crate::widget::Widget;
 pub struct WidgetList(pub Vec<Widget>);
 
 impl WidgetList {
+    #[must_use]
     pub fn to_vec(self) -> Vec<Widget> {
         self.0
     }
@@ -26,7 +27,7 @@ impl<A: Into<Widget>> From<A> for WidgetList {
 
 // From tuples of length 0 through 20.
 impl From<()> for WidgetList {
-    fn from(_: ()) -> Self {
+    fn from((): ()) -> Self {
         WidgetList(vec![])
     }
 }
