@@ -14,3 +14,5 @@ Cargo.lock
 *.pdb
 
 .idea
+Readme.md.pruned
+Readme.md.tmp
