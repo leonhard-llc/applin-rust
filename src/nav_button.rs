@@ -37,7 +37,6 @@ impl NavButton {
 
     /// Appends `actions`.
     #[must_use]
-    // TODO: Change actions to impl Into<Vec>.
     pub fn with_actions(mut self, actions: impl IntoIterator<Item = Action>) -> Self {
         self.actions.extend(actions.into_iter());
         self

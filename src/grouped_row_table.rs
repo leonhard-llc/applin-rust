@@ -7,7 +7,6 @@ use crate::row_list::RowList;
 
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct GroupedRowTable {
-    // TODO: Make all widget fields public.
     #[serde(default)]
     pub row_groups: Vec<RowList>,
     #[serde(default, skip_serializing_if = "crate::is_default")]
