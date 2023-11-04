@@ -17,11 +17,3 @@ servlin = { version = "^0.4.0", optional = true, features = ["json"] }
 serde = { version = "1", features = ["derive"] }
 
 [dev-dependencies]
-#servlin = { version = "^0.4.0", features = ["json"], path = "../servlin" }
-servlin = { version = "^0.4.0", features = ["json"] }
-serde_json = { version = "1" }
-temp-dir = "^0.1.11"
-
-[[example]]
-name = "demo"
-required-features = ["servlin"]
