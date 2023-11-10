@@ -18,6 +18,7 @@
 //!
 //! # Cargo Geiger Safety Report
 //! # Changelog
+//! - v0.1.1 - Bugfixes
 //! - v0.1.0 - First published version
 #![forbid(unsafe_code)]
 
@@ -140,6 +141,14 @@ pub enum HAlignment {
     Center,
     #[serde(rename = "end")]
     End,
+}
+
+impl HAlignment {
+    /// This is useful for serde `skip_serializing_if` attributes.
+    #[must_use]
+    pub fn is_start(&self) -> bool {
+        self == &Self::Start
+    }
 }
 
 impl Default for HAlignment {

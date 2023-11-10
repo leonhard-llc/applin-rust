@@ -6,7 +6,7 @@ use crate::HAlignment;
 
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct Column {
-    #[serde(default, skip_serializing_if = "crate::is_default")]
+    #[serde(default, skip_serializing_if = "HAlignment::is_start")]
     pub align: HAlignment,
     #[serde(default, skip_serializing_if = "crate::is_default")]
     pub spacing: u16,
@@ -20,7 +20,7 @@ impl Column {
     #[allow(clippy::new_without_default)]
     pub fn new(widgets: impl Into<WidgetList>) -> Self {
         Self {
-            align: HAlignment::default(),
+            align: HAlignment::Start,
             spacing: u16::default(),
             widgets: widgets.into().to_vec(),
         }

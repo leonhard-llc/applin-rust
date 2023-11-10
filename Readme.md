@@ -169,4 +169,5 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 
 ```
 # Changelog
+- v0.1.1 - Bugfixes
 - v0.1.0 - First published version
