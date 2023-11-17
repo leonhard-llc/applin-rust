@@ -30,7 +30,7 @@ Symbols:
 
 Functions  Expressions  Impls  Traits  Methods  Dependency
 
-0/0        0/0          0/0    0/0     0/0      🔒  applin 0.1.1
+0/0        0/0          0/0    0/0     0/0      🔒  applin 0.1.3
 0/0        0/5          0/0    0/0     0/0      ❓  ├── serde 1.0.190
 0/0        0/0          0/0    0/0     0/0      ❓  │   └── serde_derive 1.0.190
 0/0        0/15         0/0    0/0     0/3      ❓  │       ├── proc-macro2 1.0.69
@@ -105,9 +105,9 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 0/0        0/7          0/0    0/0     0/0      ❓      │   │   │   ├── itoa 1.0.9
 0/90       0/554        0/2    0/0     0/55     ❓      │   │   │   └── libc 0.2.149
 0/0        0/24         0/0    0/0     0/3      ❓      │   │   ├── slab 0.4.9
+0/0        0/5          0/0    0/0     0/0      ❓      │   │   │   └── serde 1.0.190
                                                            │   │   │   [build-dependencies]
 0/0        0/0          0/0    0/0     0/0      ❓      │   │   │   └── autocfg 1.1.0
-0/0        0/5          0/0    0/0     0/0      ❓      │   │   │   └── serde 1.0.190
 0/6        0/675        0/4    0/0     0/4      ❓      │   │   ├── socket2 0.4.10
 0/0        0/0          0/0    0/0     0/0      🔒      │   │   └── waker-fn 1.1.1
 0/0        0/0          0/0    0/0     0/0      🔒      │   ├── blocking 1.4.1
@@ -169,5 +169,6 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 
 ```
 # Changelog
-- v0.1.1 - Bugfixes
+- v0.1.3 - Add `on_user_error_poll` action.
+- v0.1.2 - Bugfixes
 - v0.1.0 - First published version

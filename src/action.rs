@@ -26,6 +26,11 @@ pub fn logout() -> Action {
 }
 
 #[must_use]
+pub fn on_user_error_poll() -> Action {
+    Action("on_user_error_poll".into())
+}
+
+#[must_use]
 pub fn poll() -> Action {
     Action("poll".into())
 }

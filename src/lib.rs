@@ -18,7 +18,8 @@
 //!
 //! # Cargo Geiger Safety Report
 //! # Changelog
-//! - v0.1.1 - Bugfixes
+//! - v0.1.3 - Add `on_user_error_poll` action.
+//! - v0.1.2 - Bugfixes
 //! - v0.1.0 - First published version
 #![forbid(unsafe_code)]
 
