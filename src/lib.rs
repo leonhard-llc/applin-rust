@@ -18,7 +18,9 @@
 //!
 //! # Cargo Geiger Safety Report
 //! # Changelog
-//! - v0.1.4 - Add `From<Option<Into<Widget>>>` for `Widget` for use with `error_text`.
+//! - v0.1.4
+//!     - Add `From<Option<Into<Widget>>>` for `Widget` for use with `error_text`.
+//!     - Add `SessionCookie`, `Id`, and `Secret`.
 //! - v0.1.3 - Add `on_user_error_poll` action.
 //! - v0.1.2 - Bugfixes
 //! - v0.1.1 - Update documentation.
@@ -46,6 +48,8 @@ pub use nav_button::*;
 pub use page::*;
 pub use real32::*;
 pub use scroll::*;
+pub use secret::*;
+pub use session_cookie::*;
 pub use text::*;
 pub use textfield::*;
 
@@ -60,17 +64,22 @@ mod form;
 mod form_button;
 mod form_section;
 mod grouped_row_table;
+mod id;
 mod image;
 mod last_error_text;
 mod nav_button;
 pub mod opt_widget_list;
 mod page;
+pub mod random;
 mod real32;
 pub mod row_group_list;
 pub mod row_list;
 mod scroll;
+mod secret;
+mod session_cookie;
 mod text;
 mod textfield;
+pub mod util;
 pub mod widget;
 pub mod widget_list;
 
