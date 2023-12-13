@@ -41,12 +41,16 @@ impl SessionCookie {
     #[allow(clippy::missing_panics_doc)]
     #[cfg(feature = "servlin")]
     pub fn to_cookie(&self) -> servlin::Cookie {
+        let duration = std::time::Duration::from_secs(100 * 365 * 24 * 3600);
         servlin::Cookie::new(
             SESSION_COOKIE_NAME,
             servlin::AsciiString::try_from(format!("{}-{}", self.id.inner(), self.secret.inner()))
                 .unwrap(),
         )
         .with_secure(false) // So we can test at http://127.0.0.1/.
+        .with_max_age(duration)
+        .with_expires(std::time::SystemTime::now() + duration)
+        .with_path("/")
     }
 }
 impl TryFrom<&str> for SessionCookie {

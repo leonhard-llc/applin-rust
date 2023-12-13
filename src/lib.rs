@@ -18,6 +18,7 @@
 //!
 //! # Cargo Geiger Safety Report
 //! # Changelog
+//! - v0.1.5 - Bugfixes.
 //! - v0.1.4
 //!     - Add `From<Option<Into<Widget>>>` for `Widget` for use with `error_text`.
 //!     - Add `SessionCookie`, `Id`, and `Secret`.
