@@ -53,13 +53,13 @@ pub fn applin_response(page: impl Into<Page>) -> Result<servlin::Response, servl
 }
 
 #[cfg(feature = "servlin")]
-pub fn client_error(msg: impl Into<String>) -> servlin::Response {
-    servlin::Response::text(400, msg.into())
+pub fn client_error(msg: impl Into<String>) -> servlin::Error {
+    servlin::Error::client_error(servlin::Response::text(400, msg.into()))
 }
 
 #[cfg(feature = "servlin")]
-pub fn user_error(msg: impl Into<String>) -> servlin::Response {
-    servlin::Response::unprocessable_entity_422(msg)
+pub fn user_error(msg: impl Into<String>) -> servlin::Error {
+    servlin::Error::client_error(servlin::Response::unprocessable_entity_422(msg))
 }
 
 pub(crate) fn is_default<T: Default + PartialEq>(t: &T) -> bool {
