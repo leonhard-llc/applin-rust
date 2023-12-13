@@ -1,4 +1,4 @@
-use applin::Real32;
+use applin::util::Real32;
 
 #[test]
 fn deserialize() {

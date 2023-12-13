@@ -1,6 +1,5 @@
+use crate::action::Action;
 use serde::{Deserialize, Serialize};
-
-use crate::Action;
 
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct Checkbox {

@@ -1,9 +1,6 @@
 #![allow(clippy::many_single_char_names)]
-
+use crate::widget::{RowGroupList, RowList};
 use serde::{Deserialize, Serialize};
-
-use crate::row_group_list::RowGroupList;
-use crate::row_list::RowList;
 
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct GroupedRowTable {

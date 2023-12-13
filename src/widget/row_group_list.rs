@@ -1,82 +1,75 @@
 #![allow(clippy::many_single_char_names)]
+use crate::widget::RowList;
 
-use crate::widget::Widget;
-
-/// This struct converts a tuple of widget builders (`Into<Widget>`) to a vector of widgets.
+/// This struct converts a tuple of row group builders (`Into<RowList>`) to a vector of row groups.
 /// It supports tuples of length 0 through 20.
-pub struct WidgetList(pub Vec<Widget>);
+pub struct RowGroupList(pub Vec<RowList>);
 
-impl WidgetList {
+impl RowGroupList {
     #[must_use]
-    pub fn to_vec(self) -> Vec<Widget> {
+    pub fn to_vec(self) -> Vec<RowList> {
         self.0
     }
 }
 
-impl From<Vec<Widget>> for WidgetList {
-    fn from(v: Vec<Widget>) -> Self {
+impl From<Vec<RowList>> for RowGroupList {
+    fn from(v: Vec<RowList>) -> Self {
         Self(v)
     }
 }
 
-impl<A: Into<Widget>> From<A> for WidgetList {
-    fn from(a: A) -> Self {
-        WidgetList(vec![a.into()])
-    }
-}
-
 // From tuples of length 0 through 20.
-impl From<()> for WidgetList {
+impl From<()> for RowGroupList {
     fn from((): ()) -> Self {
-        WidgetList(vec![])
+        RowGroupList(vec![])
     }
 }
 
-impl<A: Into<Widget>> From<(A,)> for WidgetList {
+impl<A: Into<RowList>> From<(A,)> for RowGroupList {
     fn from((a,): (A,)) -> Self {
-        WidgetList(vec![a.into()])
+        RowGroupList(vec![a.into()])
     }
 }
 
-impl<A: Into<Widget>, B: Into<Widget>> From<(A, B)> for WidgetList {
+impl<A: Into<RowList>, B: Into<RowList>> From<(A, B)> for RowGroupList {
     fn from((a, b): (A, B)) -> Self {
-        WidgetList(vec![a.into(), b.into()])
+        RowGroupList(vec![a.into(), b.into()])
     }
 }
 
-impl<A: Into<Widget>, B: Into<Widget>, C: Into<Widget>> From<(A, B, C)> for WidgetList {
+impl<A: Into<RowList>, B: Into<RowList>, C: Into<RowList>> From<(A, B, C)> for RowGroupList {
     fn from((a, b, c): (A, B, C)) -> Self {
-        WidgetList(vec![a.into(), b.into(), c.into()])
+        RowGroupList(vec![a.into(), b.into(), c.into()])
     }
 }
 
-impl<A: Into<Widget>, B: Into<Widget>, C: Into<Widget>, D: Into<Widget>> From<(A, B, C, D)>
-    for WidgetList
+impl<A: Into<RowList>, B: Into<RowList>, C: Into<RowList>, D: Into<RowList>> From<(A, B, C, D)>
+    for RowGroupList
 {
     fn from((a, b, c, d): (A, B, C, D)) -> Self {
-        WidgetList(vec![a.into(), b.into(), c.into(), d.into()])
+        RowGroupList(vec![a.into(), b.into(), c.into(), d.into()])
     }
 }
 
-impl<A: Into<Widget>, B: Into<Widget>, C: Into<Widget>, D: Into<Widget>, E: Into<Widget>>
-    From<(A, B, C, D, E)> for WidgetList
+impl<A: Into<RowList>, B: Into<RowList>, C: Into<RowList>, D: Into<RowList>, E: Into<RowList>>
+    From<(A, B, C, D, E)> for RowGroupList
 {
     fn from((a, b, c, d, e): (A, B, C, D, E)) -> Self {
-        WidgetList(vec![a.into(), b.into(), c.into(), d.into(), e.into()])
+        RowGroupList(vec![a.into(), b.into(), c.into(), d.into(), e.into()])
     }
 }
 
 impl<
-        A: Into<Widget>,
-        B: Into<Widget>,
-        C: Into<Widget>,
-        D: Into<Widget>,
-        E: Into<Widget>,
-        F: Into<Widget>,
-    > From<(A, B, C, D, E, F)> for WidgetList
+        A: Into<RowList>,
+        B: Into<RowList>,
+        C: Into<RowList>,
+        D: Into<RowList>,
+        E: Into<RowList>,
+        F: Into<RowList>,
+    > From<(A, B, C, D, E, F)> for RowGroupList
 {
     fn from((a, b, c, d, e, f): (A, B, C, D, E, F)) -> Self {
-        WidgetList(vec![
+        RowGroupList(vec![
             a.into(),
             b.into(),
             c.into(),
@@ -88,17 +81,17 @@ impl<
 }
 
 impl<
-        A: Into<Widget>,
-        B: Into<Widget>,
-        C: Into<Widget>,
-        D: Into<Widget>,
-        E: Into<Widget>,
-        F: Into<Widget>,
-        G: Into<Widget>,
-    > From<(A, B, C, D, E, F, G)> for WidgetList
+        A: Into<RowList>,
+        B: Into<RowList>,
+        C: Into<RowList>,
+        D: Into<RowList>,
+        E: Into<RowList>,
+        F: Into<RowList>,
+        G: Into<RowList>,
+    > From<(A, B, C, D, E, F, G)> for RowGroupList
 {
     fn from((a, b, c, d, e, f, g): (A, B, C, D, E, F, G)) -> Self {
-        WidgetList(vec![
+        RowGroupList(vec![
             a.into(),
             b.into(),
             c.into(),
@@ -111,18 +104,18 @@ impl<
 }
 
 impl<
-        A: Into<Widget>,
-        B: Into<Widget>,
-        C: Into<Widget>,
-        D: Into<Widget>,
-        E: Into<Widget>,
-        F: Into<Widget>,
-        G: Into<Widget>,
-        H: Into<Widget>,
-    > From<(A, B, C, D, E, F, G, H)> for WidgetList
+        A: Into<RowList>,
+        B: Into<RowList>,
+        C: Into<RowList>,
+        D: Into<RowList>,
+        E: Into<RowList>,
+        F: Into<RowList>,
+        G: Into<RowList>,
+        H: Into<RowList>,
+    > From<(A, B, C, D, E, F, G, H)> for RowGroupList
 {
     fn from((a, b, c, d, e, f, g, h): (A, B, C, D, E, F, G, H)) -> Self {
-        WidgetList(vec![
+        RowGroupList(vec![
             a.into(),
             b.into(),
             c.into(),
@@ -136,19 +129,19 @@ impl<
 }
 
 impl<
-        A: Into<Widget>,
-        B: Into<Widget>,
-        C: Into<Widget>,
-        D: Into<Widget>,
-        E: Into<Widget>,
-        F: Into<Widget>,
-        G: Into<Widget>,
-        H: Into<Widget>,
-        I: Into<Widget>,
-    > From<(A, B, C, D, E, F, G, H, I)> for WidgetList
+        A: Into<RowList>,
+        B: Into<RowList>,
+        C: Into<RowList>,
+        D: Into<RowList>,
+        E: Into<RowList>,
+        F: Into<RowList>,
+        G: Into<RowList>,
+        H: Into<RowList>,
+        I: Into<RowList>,
+    > From<(A, B, C, D, E, F, G, H, I)> for RowGroupList
 {
     fn from((a, b, c, d, e, f, g, h, i): (A, B, C, D, E, F, G, H, I)) -> Self {
-        WidgetList(vec![
+        RowGroupList(vec![
             a.into(),
             b.into(),
             c.into(),
@@ -163,20 +156,20 @@ impl<
 }
 
 impl<
-        A: Into<Widget>,
-        B: Into<Widget>,
-        C: Into<Widget>,
-        D: Into<Widget>,
-        E: Into<Widget>,
-        F: Into<Widget>,
-        G: Into<Widget>,
-        H: Into<Widget>,
-        I: Into<Widget>,
-        J: Into<Widget>,
-    > From<(A, B, C, D, E, F, G, H, I, J)> for WidgetList
+        A: Into<RowList>,
+        B: Into<RowList>,
+        C: Into<RowList>,
+        D: Into<RowList>,
+        E: Into<RowList>,
+        F: Into<RowList>,
+        G: Into<RowList>,
+        H: Into<RowList>,
+        I: Into<RowList>,
+        J: Into<RowList>,
+    > From<(A, B, C, D, E, F, G, H, I, J)> for RowGroupList
 {
     fn from((a, b, c, d, e, f, g, h, i, j): (A, B, C, D, E, F, G, H, I, J)) -> Self {
-        WidgetList(vec![
+        RowGroupList(vec![
             a.into(),
             b.into(),
             c.into(),
@@ -192,21 +185,21 @@ impl<
 }
 
 impl<
-        A: Into<Widget>,
-        B: Into<Widget>,
-        C: Into<Widget>,
-        D: Into<Widget>,
-        E: Into<Widget>,
-        F: Into<Widget>,
-        G: Into<Widget>,
-        H: Into<Widget>,
-        I: Into<Widget>,
-        J: Into<Widget>,
-        K: Into<Widget>,
-    > From<(A, B, C, D, E, F, G, H, I, J, K)> for WidgetList
+        A: Into<RowList>,
+        B: Into<RowList>,
+        C: Into<RowList>,
+        D: Into<RowList>,
+        E: Into<RowList>,
+        F: Into<RowList>,
+        G: Into<RowList>,
+        H: Into<RowList>,
+        I: Into<RowList>,
+        J: Into<RowList>,
+        K: Into<RowList>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K)> for RowGroupList
 {
     fn from((a, b, c, d, e, f, g, h, i, j, k): (A, B, C, D, E, F, G, H, I, J, K)) -> Self {
-        WidgetList(vec![
+        RowGroupList(vec![
             a.into(),
             b.into(),
             c.into(),
@@ -223,22 +216,22 @@ impl<
 }
 
 impl<
-        A: Into<Widget>,
-        B: Into<Widget>,
-        C: Into<Widget>,
-        D: Into<Widget>,
-        E: Into<Widget>,
-        F: Into<Widget>,
-        G: Into<Widget>,
-        H: Into<Widget>,
-        I: Into<Widget>,
-        J: Into<Widget>,
-        K: Into<Widget>,
-        L: Into<Widget>,
-    > From<(A, B, C, D, E, F, G, H, I, J, K, L)> for WidgetList
+        A: Into<RowList>,
+        B: Into<RowList>,
+        C: Into<RowList>,
+        D: Into<RowList>,
+        E: Into<RowList>,
+        F: Into<RowList>,
+        G: Into<RowList>,
+        H: Into<RowList>,
+        I: Into<RowList>,
+        J: Into<RowList>,
+        K: Into<RowList>,
+        L: Into<RowList>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L)> for RowGroupList
 {
     fn from((a, b, c, d, e, f, g, h, i, j, k, l): (A, B, C, D, E, F, G, H, I, J, K, L)) -> Self {
-        WidgetList(vec![
+        RowGroupList(vec![
             a.into(),
             b.into(),
             c.into(),
@@ -256,25 +249,25 @@ impl<
 }
 
 impl<
-        A: Into<Widget>,
-        B: Into<Widget>,
-        C: Into<Widget>,
-        D: Into<Widget>,
-        E: Into<Widget>,
-        F: Into<Widget>,
-        G: Into<Widget>,
-        H: Into<Widget>,
-        I: Into<Widget>,
-        J: Into<Widget>,
-        K: Into<Widget>,
-        L: Into<Widget>,
-        M: Into<Widget>,
-    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M)> for WidgetList
+        A: Into<RowList>,
+        B: Into<RowList>,
+        C: Into<RowList>,
+        D: Into<RowList>,
+        E: Into<RowList>,
+        F: Into<RowList>,
+        G: Into<RowList>,
+        H: Into<RowList>,
+        I: Into<RowList>,
+        J: Into<RowList>,
+        K: Into<RowList>,
+        L: Into<RowList>,
+        M: Into<RowList>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M)> for RowGroupList
 {
     fn from(
         (a, b, c, d, e, f, g, h, i, j, k, l, m): (A, B, C, D, E, F, G, H, I, J, K, L, M),
     ) -> Self {
-        WidgetList(vec![
+        RowGroupList(vec![
             a.into(),
             b.into(),
             c.into(),
@@ -293,26 +286,26 @@ impl<
 }
 
 impl<
-        A: Into<Widget>,
-        B: Into<Widget>,
-        C: Into<Widget>,
-        D: Into<Widget>,
-        E: Into<Widget>,
-        F: Into<Widget>,
-        G: Into<Widget>,
-        H: Into<Widget>,
-        I: Into<Widget>,
-        J: Into<Widget>,
-        K: Into<Widget>,
-        L: Into<Widget>,
-        M: Into<Widget>,
-        N: Into<Widget>,
-    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N)> for WidgetList
+        A: Into<RowList>,
+        B: Into<RowList>,
+        C: Into<RowList>,
+        D: Into<RowList>,
+        E: Into<RowList>,
+        F: Into<RowList>,
+        G: Into<RowList>,
+        H: Into<RowList>,
+        I: Into<RowList>,
+        J: Into<RowList>,
+        K: Into<RowList>,
+        L: Into<RowList>,
+        M: Into<RowList>,
+        N: Into<RowList>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N)> for RowGroupList
 {
     fn from(
         (a, b, c, d, e, f, g, h, i, j, k, l, m, n): (A, B, C, D, E, F, G, H, I, J, K, L, M, N),
     ) -> Self {
-        WidgetList(vec![
+        RowGroupList(vec![
             a.into(),
             b.into(),
             c.into(),
@@ -332,22 +325,22 @@ impl<
 }
 
 impl<
-        A: Into<Widget>,
-        B: Into<Widget>,
-        C: Into<Widget>,
-        D: Into<Widget>,
-        E: Into<Widget>,
-        F: Into<Widget>,
-        G: Into<Widget>,
-        H: Into<Widget>,
-        I: Into<Widget>,
-        J: Into<Widget>,
-        K: Into<Widget>,
-        L: Into<Widget>,
-        M: Into<Widget>,
-        N: Into<Widget>,
-        O: Into<Widget>,
-    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O)> for WidgetList
+        A: Into<RowList>,
+        B: Into<RowList>,
+        C: Into<RowList>,
+        D: Into<RowList>,
+        E: Into<RowList>,
+        F: Into<RowList>,
+        G: Into<RowList>,
+        H: Into<RowList>,
+        I: Into<RowList>,
+        J: Into<RowList>,
+        K: Into<RowList>,
+        L: Into<RowList>,
+        M: Into<RowList>,
+        N: Into<RowList>,
+        O: Into<RowList>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O)> for RowGroupList
 {
     fn from(
         (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o): (
@@ -368,7 +361,7 @@ impl<
             O,
         ),
     ) -> Self {
-        WidgetList(vec![
+        RowGroupList(vec![
             a.into(),
             b.into(),
             c.into(),
@@ -389,23 +382,23 @@ impl<
 }
 
 impl<
-        A: Into<Widget>,
-        B: Into<Widget>,
-        C: Into<Widget>,
-        D: Into<Widget>,
-        E: Into<Widget>,
-        F: Into<Widget>,
-        G: Into<Widget>,
-        H: Into<Widget>,
-        I: Into<Widget>,
-        J: Into<Widget>,
-        K: Into<Widget>,
-        L: Into<Widget>,
-        M: Into<Widget>,
-        N: Into<Widget>,
-        O: Into<Widget>,
-        P: Into<Widget>,
-    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P)> for WidgetList
+        A: Into<RowList>,
+        B: Into<RowList>,
+        C: Into<RowList>,
+        D: Into<RowList>,
+        E: Into<RowList>,
+        F: Into<RowList>,
+        G: Into<RowList>,
+        H: Into<RowList>,
+        I: Into<RowList>,
+        J: Into<RowList>,
+        K: Into<RowList>,
+        L: Into<RowList>,
+        M: Into<RowList>,
+        N: Into<RowList>,
+        O: Into<RowList>,
+        P: Into<RowList>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P)> for RowGroupList
 {
     fn from(
         (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p): (
@@ -427,7 +420,7 @@ impl<
             P,
         ),
     ) -> Self {
-        WidgetList(vec![
+        RowGroupList(vec![
             a.into(),
             b.into(),
             c.into(),
@@ -449,24 +442,24 @@ impl<
 }
 
 impl<
-        A: Into<Widget>,
-        B: Into<Widget>,
-        C: Into<Widget>,
-        D: Into<Widget>,
-        E: Into<Widget>,
-        F: Into<Widget>,
-        G: Into<Widget>,
-        H: Into<Widget>,
-        I: Into<Widget>,
-        J: Into<Widget>,
-        K: Into<Widget>,
-        L: Into<Widget>,
-        M: Into<Widget>,
-        N: Into<Widget>,
-        O: Into<Widget>,
-        P: Into<Widget>,
-        Q: Into<Widget>,
-    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q)> for WidgetList
+        A: Into<RowList>,
+        B: Into<RowList>,
+        C: Into<RowList>,
+        D: Into<RowList>,
+        E: Into<RowList>,
+        F: Into<RowList>,
+        G: Into<RowList>,
+        H: Into<RowList>,
+        I: Into<RowList>,
+        J: Into<RowList>,
+        K: Into<RowList>,
+        L: Into<RowList>,
+        M: Into<RowList>,
+        N: Into<RowList>,
+        O: Into<RowList>,
+        P: Into<RowList>,
+        Q: Into<RowList>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q)> for RowGroupList
 {
     fn from(
         (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q): (
@@ -489,7 +482,7 @@ impl<
             Q,
         ),
     ) -> Self {
-        WidgetList(vec![
+        RowGroupList(vec![
             a.into(),
             b.into(),
             c.into(),
@@ -512,25 +505,25 @@ impl<
 }
 
 impl<
-        A: Into<Widget>,
-        B: Into<Widget>,
-        C: Into<Widget>,
-        D: Into<Widget>,
-        E: Into<Widget>,
-        F: Into<Widget>,
-        G: Into<Widget>,
-        H: Into<Widget>,
-        I: Into<Widget>,
-        J: Into<Widget>,
-        K: Into<Widget>,
-        L: Into<Widget>,
-        M: Into<Widget>,
-        N: Into<Widget>,
-        O: Into<Widget>,
-        P: Into<Widget>,
-        Q: Into<Widget>,
-        R: Into<Widget>,
-    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R)> for WidgetList
+        A: Into<RowList>,
+        B: Into<RowList>,
+        C: Into<RowList>,
+        D: Into<RowList>,
+        E: Into<RowList>,
+        F: Into<RowList>,
+        G: Into<RowList>,
+        H: Into<RowList>,
+        I: Into<RowList>,
+        J: Into<RowList>,
+        K: Into<RowList>,
+        L: Into<RowList>,
+        M: Into<RowList>,
+        N: Into<RowList>,
+        O: Into<RowList>,
+        P: Into<RowList>,
+        Q: Into<RowList>,
+        R: Into<RowList>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R)> for RowGroupList
 {
     fn from(
         (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r): (
@@ -554,7 +547,7 @@ impl<
             R,
         ),
     ) -> Self {
-        WidgetList(vec![
+        RowGroupList(vec![
             a.into(),
             b.into(),
             c.into(),
@@ -578,26 +571,26 @@ impl<
 }
 
 impl<
-        A: Into<Widget>,
-        B: Into<Widget>,
-        C: Into<Widget>,
-        D: Into<Widget>,
-        E: Into<Widget>,
-        F: Into<Widget>,
-        G: Into<Widget>,
-        H: Into<Widget>,
-        I: Into<Widget>,
-        J: Into<Widget>,
-        K: Into<Widget>,
-        L: Into<Widget>,
-        M: Into<Widget>,
-        N: Into<Widget>,
-        O: Into<Widget>,
-        P: Into<Widget>,
-        Q: Into<Widget>,
-        R: Into<Widget>,
-        S: Into<Widget>,
-    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S)> for WidgetList
+        A: Into<RowList>,
+        B: Into<RowList>,
+        C: Into<RowList>,
+        D: Into<RowList>,
+        E: Into<RowList>,
+        F: Into<RowList>,
+        G: Into<RowList>,
+        H: Into<RowList>,
+        I: Into<RowList>,
+        J: Into<RowList>,
+        K: Into<RowList>,
+        L: Into<RowList>,
+        M: Into<RowList>,
+        N: Into<RowList>,
+        O: Into<RowList>,
+        P: Into<RowList>,
+        Q: Into<RowList>,
+        R: Into<RowList>,
+        S: Into<RowList>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S)> for RowGroupList
 {
     fn from(
         (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s): (
@@ -622,7 +615,7 @@ impl<
             S,
         ),
     ) -> Self {
-        WidgetList(vec![
+        RowGroupList(vec![
             a.into(),
             b.into(),
             c.into(),
@@ -647,27 +640,27 @@ impl<
 }
 
 impl<
-        A: Into<Widget>,
-        B: Into<Widget>,
-        C: Into<Widget>,
-        D: Into<Widget>,
-        E: Into<Widget>,
-        F: Into<Widget>,
-        G: Into<Widget>,
-        H: Into<Widget>,
-        I: Into<Widget>,
-        J: Into<Widget>,
-        K: Into<Widget>,
-        L: Into<Widget>,
-        M: Into<Widget>,
-        N: Into<Widget>,
-        O: Into<Widget>,
-        P: Into<Widget>,
-        Q: Into<Widget>,
-        R: Into<Widget>,
-        S: Into<Widget>,
-        T: Into<Widget>,
-    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T)> for WidgetList
+        A: Into<RowList>,
+        B: Into<RowList>,
+        C: Into<RowList>,
+        D: Into<RowList>,
+        E: Into<RowList>,
+        F: Into<RowList>,
+        G: Into<RowList>,
+        H: Into<RowList>,
+        I: Into<RowList>,
+        J: Into<RowList>,
+        K: Into<RowList>,
+        L: Into<RowList>,
+        M: Into<RowList>,
+        N: Into<RowList>,
+        O: Into<RowList>,
+        P: Into<RowList>,
+        Q: Into<RowList>,
+        R: Into<RowList>,
+        S: Into<RowList>,
+        T: Into<RowList>,
+    > From<(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T)> for RowGroupList
 {
     fn from(
         (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t): (
@@ -693,7 +686,7 @@ impl<
             T,
         ),
     ) -> Self {
-        WidgetList(vec![
+        RowGroupList(vec![
             a.into(),
             b.into(),
             c.into(),

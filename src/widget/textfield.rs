@@ -1,6 +1,5 @@
+use crate::option::{Allow, AutoCapitalize};
 use serde::{Deserialize, Serialize};
-
-use crate::{Allow, AutoCapitalize};
 
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct Textfield {

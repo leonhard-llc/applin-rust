@@ -1,6 +1,5 @@
-use serde::{Deserialize, Serialize};
-
 use crate::widget::Widget;
+use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct Scroll {

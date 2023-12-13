@@ -1,3 +1,8 @@
+mod random;
+mod real32;
+pub(crate) use random::*;
+pub use real32::*;
+
 /// Convert a byte slice into a string.
 /// Includes printable ASCII characters as-is.
 /// Converts non-printable or non-ASCII characters to strings like "\n" and "\x19".

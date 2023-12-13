@@ -1,6 +1,5 @@
-use std::fmt::Display;
-
 use serde::{Deserialize, Serialize};
+use std::fmt::Display;
 
 /// Add actions to button widgets and other widgets
 /// to let the user initiate actions in the app.
@@ -46,9 +45,9 @@ pub fn copy_to_clipboard(text: impl Display) -> Action {
 ///
 /// # Example
 /// ```
-/// use applin::{button, launch_url};
-/// # use applin::Button;
-/// # fn f() -> Button {
+/// use applin::widget::button;
+/// use applin::action::launch_url;
+/// # fn f() -> applin::widget::Button {
 /// button("Support", [launch_url("https://www.example.com/support")])
 /// # }
 /// ```
@@ -80,9 +79,9 @@ pub fn on_user_error_poll() -> Action {
 ///
 /// ## Example
 /// ```
-/// use applin::{button, poll, rpc};
-/// # use applin::Button;
-/// # fn f() -> Button {
+/// use applin::widget::button;
+/// use applin::action::{poll, rpc};
+/// # fn f() -> applin::widget::Button {
 /// button("Submit", [poll(), rpc("/form_submit")])
 /// # }
 /// ```

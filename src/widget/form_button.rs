@@ -1,6 +1,6 @@
+use crate::action::Action;
+use crate::option::HAlignment;
 use serde::{Deserialize, Serialize};
-
-use crate::{Action, HAlignment};
 
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct FormButton {

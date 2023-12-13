@@ -172,6 +172,7 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 - v0.1.4
     - Add `From<Option<Into<Widget>>>` for `Widget` for use with `error_text`.
     - Add `SessionCookie`, `Id`, and `Secret`.
+    - Organize into modules for easier discovery.
 - v0.1.3 - Add `on_user_error_poll` action.
 - v0.1.2 - Bugfixes
 - v0.1.1 - Update documentation.

@@ -1,5 +1,4 @@
 #![allow(clippy::many_single_char_names)]
-
 use crate::widget::Widget;
 
 /// This struct converts a tuple `Into<Option<Widget>>` to a `Vec<Option<Widget>>`.

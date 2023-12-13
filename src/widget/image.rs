@@ -1,6 +1,6 @@
+use crate::option::Disposition;
+use crate::util::Real32;
 use serde::{Deserialize, Serialize};
-
-use crate::{Disposition, Real32};
 
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct Image {

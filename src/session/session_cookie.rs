@@ -1,6 +1,5 @@
-use crate::id::Id;
+use crate::session::{Id, Secret};
 use crate::util::escape_and_elide;
-use crate::Secret;
 use core::fmt::{Debug, Formatter};
 use serde::{Deserialize, Serialize};
 use std::hash::{Hash, Hasher};

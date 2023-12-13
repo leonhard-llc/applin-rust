@@ -1,8 +1,6 @@
 #![allow(clippy::many_single_char_names)]
+use crate::widget::{OptWidgetList, Widget};
 use serde::{Deserialize, Serialize};
-
-use crate::opt_widget_list::OptWidgetList;
-use crate::widget::Widget;
 
 /// This struct converts tuples of tuples of widget builders (`Into<OptWidgetList>`)
 /// to a `Vec<Vec<Option<Widget>>>`.

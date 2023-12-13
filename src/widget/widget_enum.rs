@@ -1,10 +1,8 @@
-use serde::{Deserialize, Serialize};
-
-use crate::text::Text;
-use crate::{
+use crate::widget::{
     BackButton, Button, Checkbox, Column, Empty, ErrorText, Form, FormButton, FormSection,
-    GroupedRowTable, Image, LastErrorText, NavButton, Scroll, Textfield,
+    GroupedRowTable, Image, LastErrorText, NavButton, Scroll, Text, Textfield,
 };
+use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 #[serde(tag = "typ")]
