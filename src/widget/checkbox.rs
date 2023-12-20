@@ -1,16 +1,18 @@
 use crate::action::Action;
 use serde::{Deserialize, Serialize};
+use std::time::Duration;
 
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct Checkbox {
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub actions: Vec<Action>,
-    pub var_name: String,
     #[serde(default, skip_serializing_if = "std::ops::Not::not")]
     pub initial_bool: bool,
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    pub rpc: Option<String>,
+    pub poll_delay_ms: Option<u32>,
     #[serde(default, skip_serializing_if = "String::is_empty")]
     pub text: String,
+    pub var_name: String,
 }
 
 impl Checkbox {
@@ -24,26 +26,34 @@ impl Checkbox {
             actions: Vec::new(),
             var_name,
             initial_bool: false,
-            rpc: None,
+            poll_delay_ms: None,
             text: String::new(),
         }
     }
 
+    /// Appends `actions`.
     #[must_use]
-    pub fn with_text(mut self, label: impl Into<String>) -> Self {
-        self.text = label.into();
-        self
-    }
-
-    #[must_use]
-    pub fn with_rpc(mut self, rpc: impl Into<String>) -> Self {
-        self.rpc = Some(rpc.into());
+    pub fn with_actions(mut self, actions: impl IntoIterator<Item = Action>) -> Self {
+        self.actions.extend(actions);
         self
     }
 
     #[must_use]
     pub fn with_initial_bool(mut self, checked: bool) -> Self {
         self.initial_bool = checked;
+        self
+    }
+
+    /// Poll the page after the field is updated and `duration` has passed.
+    #[must_use]
+    pub fn with_poll_delay(mut self, duration: Duration) -> Self {
+        self.poll_delay_ms = Some(duration.as_millis().try_into().unwrap_or(u32::MAX));
+        self
+    }
+
+    #[must_use]
+    pub fn with_text(mut self, label: impl Into<String>) -> Self {
+        self.text = label.into();
         self
     }
 }

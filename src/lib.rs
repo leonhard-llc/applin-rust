@@ -18,7 +18,10 @@
 //!
 //! # Cargo Geiger Safety Report
 //! # Changelog
-//! - v0.1.5 - Bugfixes.
+//! - v0.1.5
+//!     - Support `ApplinIos` 0.25.0.
+//!     - Add `poll_delay_ms` to checkbox and textfield.
+//!     - Replace checkbox `rpc` field with `actions`.
 //! - v0.1.4
 //!     - Add `From<Option<Into<Widget>>>` for `Widget` for use with `error_text`.
 //!     - Add `SessionCookie`, `Id`, and `Secret`.

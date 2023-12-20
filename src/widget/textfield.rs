@@ -1,5 +1,6 @@
 use crate::option::{Allow, AutoCapitalize};
 use serde::{Deserialize, Serialize};
+use std::time::Duration;
 
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct Textfield {
@@ -19,6 +20,8 @@ pub struct Textfield {
     pub max_lines: u32,
     #[serde(default, skip_serializing_if = "crate::is_default")]
     pub min_chars: u32,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub poll_delay_ms: Option<u32>,
     #[serde(default)]
     pub var_name: String,
 }
@@ -39,6 +42,7 @@ impl Textfield {
             max_chars: u32::MAX,
             max_lines: u32::MAX,
             min_chars: 0,
+            poll_delay_ms: None,
             var_name,
         }
     }
@@ -106,6 +110,13 @@ impl Textfield {
     #[must_use]
     pub fn with_min_chars(mut self, x: u32) -> Self {
         self.min_chars = x;
+        self
+    }
+
+    /// Poll the page after the field is updated and `duration` has passed.
+    #[must_use]
+    pub fn with_poll_delay(mut self, duration: Duration) -> Self {
+        self.poll_delay_ms = Some(duration.as_millis().try_into().unwrap_or(u32::MAX));
         self
     }
 }
