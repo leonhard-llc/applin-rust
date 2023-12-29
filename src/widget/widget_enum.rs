@@ -1,6 +1,6 @@
 use crate::widget::{
     BackButton, Button, Checkbox, Column, Empty, ErrorText, Form, FormButton, FormSection,
-    GroupedRowTable, Image, LastErrorText, NavButton, Scroll, Text, Textfield,
+    GroupedRowTable, Image, LastErrorText, NavButton, Scroll, Selector, Text, Textfield,
 };
 use serde::{Deserialize, Serialize};
 
@@ -35,6 +35,8 @@ pub enum Widget {
     NavButton(NavButton),
     #[serde(rename = "scroll")]
     Scroll(Scroll),
+    #[serde(rename = "selector")]
+    Selector(Selector),
     #[serde(rename = "text")]
     Text(Text),
     #[serde(rename = "textfield")]
@@ -131,6 +133,12 @@ impl From<NavButton> for Widget {
 impl From<Scroll> for Widget {
     fn from(src: Scroll) -> Self {
         Widget::Scroll(src)
+    }
+}
+
+impl From<Selector> for Widget {
+    fn from(src: Selector) -> Self {
+        Widget::Selector(src)
     }
 }
 

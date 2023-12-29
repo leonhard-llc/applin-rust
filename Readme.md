@@ -169,6 +169,10 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 
 ```
 # Changelog
+- v0.1.6
+    - Support `ApplinIos` 0.28.0.
+    - Add `logout` action.
+    - Add `selector` widget.
 - v0.1.5
     - Support `ApplinIos` 0.25.0.
     - Add `poll_delay_ms` to checkbox and textfield.
