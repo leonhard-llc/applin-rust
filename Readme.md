@@ -169,6 +169,10 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 
 ```
 # Changelog
+- v0.1.7
+    - Support `ApplinIos` 0.31.0.
+    - Add `modal` action.
+    - Add `aspect_ratio` to `choose_photo` and `take_photo` actions.
 - v0.1.6
     - Support `ApplinIos` 0.28.0.
     - Add `logout` action.

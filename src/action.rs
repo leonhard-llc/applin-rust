@@ -1,5 +1,19 @@
+use crate::util::Real32;
 use serde::{Deserialize, Serialize};
 use std::fmt::Display;
+
+#[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
+pub struct ModalButton {
+    pub text: String,
+    pub actions: Vec<Action>,
+}
+
+pub fn modal_button(text: impl Into<String>, actions: impl Into<Vec<Action>>) -> ModalButton {
+    ModalButton {
+        text: text.into(),
+        actions: actions.into(),
+    }
+}
 
 /// Add actions to button widgets and other widgets
 /// to let the user initiate actions in the app.
@@ -8,22 +22,57 @@ use std::fmt::Display;
 /// It performs the actions in order.
 /// If it encounters an error while performing an action, it stops.
 ///
-/// For example, when performing the action list `["rpc:/save", "pop"]`,
+/// For example, when performing the action list `[{"typ":"rpc","url":/save"}, {"typ":"pop"}]`,
 /// if the RPC to `/save` returns an error, the frontend will not pop the page.
 ///
 /// Do you need an action that's not here?
 /// Please let us know: <https://www.applin.dev/docs/feature-requests.html>.
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
-pub struct Action(pub String);
+pub struct Action {
+    typ: String,
+    #[serde(default, skip_serializing_if = "crate::is_default")]
+    aspect_ratio: Option<Real32>,
+    #[serde(default, skip_serializing_if = "crate::is_default")]
+    buttons: Vec<ModalButton>,
+    #[serde(default, skip_serializing_if = "crate::is_default")]
+    message: String,
+    #[serde(default, skip_serializing_if = "crate::is_default")]
+    page: String,
+    #[serde(default, skip_serializing_if = "crate::is_default")]
+    string_value: String,
+    #[serde(default, skip_serializing_if = "crate::is_default")]
+    title: String,
+    #[serde(default, skip_serializing_if = "crate::is_default")]
+    url: String,
+}
+impl Action {
+    pub fn new(typ: impl Display) -> Self {
+        Action {
+            typ: typ.to_string(),
+            aspect_ratio: None,
+            buttons: Vec::new(),
+            message: String::new(),
+            page: String::new(),
+            string_value: String::new(),
+            title: String::new(),
+            url: String::new(),
+        }
+    }
+}
 
 #[must_use]
-pub fn choose_photo(upload_url: impl Display) -> Action {
-    Action(format!("choose_photo:{upload_url}"))
+pub fn choose_photo(upload_url: impl Display, aspect_ratio: Option<f32>) -> Action {
+    let mut action = Action::new("choose_photo");
+    action.aspect_ratio = aspect_ratio.map(Real32::new);
+    action.url = upload_url.to_string();
+    action
 }
 
 #[must_use]
 pub fn copy_to_clipboard(text: impl Display) -> Action {
-    Action(format!("copy_to_clipboard:{text}"))
+    let mut action = Action::new("copy_to_clipboard");
+    action.string_value = text.to_string();
+    action
 }
 
 /// Launch a URL on the user's device.
@@ -53,17 +102,54 @@ pub fn copy_to_clipboard(text: impl Display) -> Action {
 /// ```
 #[must_use]
 pub fn launch_url(url: impl Display) -> Action {
-    Action(format!("launch_url:{url}"))
+    let mut action = Action::new("launch_url");
+    action.url = url.to_string();
+    action
 }
 
 #[must_use]
 pub fn logout() -> Action {
-    Action("logout".into())
+    Action::new("logout")
+}
+
+/// Displays a modal dialog box, aka an "alert".
+///
+/// Use the string "Cancel" for the cancel button text.
+/// Add `!` to the start of the button text to give the button "destructive" style.
+///
+/// # Example
+/// ```
+/// use std::collections::HashMap;
+/// use applin::widget::button;
+/// use applin::action::{modal, poll, rpc};
+/// # fn f() -> applin::widget::Button {
+/// button("Delete", [modal(
+///     "Delete Item?",
+///     None,
+///     vec![
+///         ("!Delete".into(), vec![rpc("/delete?id=123"), poll()]),
+///         ("Cancel".into(), vec![]),
+///     ]
+/// )])
+/// # }
+/// ```
+#[allow(clippy::implicit_hasher)]
+#[must_use]
+pub fn modal(
+    title: impl Into<String>,
+    message: Option<String>,
+    buttons: impl Into<Vec<ModalButton>>,
+) -> Action {
+    let mut action = Action::new("modal");
+    action.title = title.into();
+    action.message = message.map(Into::into).unwrap_or_default();
+    action.buttons = buttons.into();
+    action
 }
 
 #[must_use]
 pub fn on_user_error_poll() -> Action {
-    Action("on_user_error_poll".into())
+    Action::new("on_user_error_poll")
 }
 
 /// Use `poll` to update the page based on page data or backend data.
@@ -87,30 +173,39 @@ pub fn on_user_error_poll() -> Action {
 /// ```
 #[must_use]
 pub fn poll() -> Action {
-    Action("poll".into())
+    Action::new("poll")
 }
 
 #[must_use]
 pub fn pop() -> Action {
-    Action("pop".into())
+    Action::new("pop")
 }
 
 #[must_use]
 pub fn push(page_key: impl Display) -> Action {
-    Action(format!("push:{page_key}"))
+    let mut action = Action::new("push");
+    action.page = page_key.to_string();
+    action
 }
 
 #[must_use]
 pub fn replace_all(page_key: impl Display) -> Action {
-    Action(format!("replace_all:{page_key}"))
+    let mut action = Action::new("replace_all");
+    action.page = page_key.to_string();
+    action
 }
 
 #[must_use]
 pub fn rpc(url: impl Display) -> Action {
-    Action(format!("rpc:{url}"))
+    let mut action = Action::new("rpc");
+    action.url = url.to_string();
+    action
 }
 
 #[must_use]
-pub fn take_photo(upload_url: impl Display) -> Action {
-    Action(format!("take_photo:{upload_url}"))
+pub fn take_photo(upload_url: impl Display, aspect_ratio: Option<f32>) -> Action {
+    let mut action = Action::new("take_photo");
+    action.aspect_ratio = aspect_ratio.map(Real32::new);
+    action.url = upload_url.to_string();
+    action
 }

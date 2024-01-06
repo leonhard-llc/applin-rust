@@ -3,7 +3,7 @@ use crate::widget::{empty, BackButton, Widget};
 use serde::{Deserialize, Serialize};
 
 #[allow(clippy::large_enum_variant)]
-#[derive(Clone, Debug, Deserialize, Eq, Hash, Serialize, Ord, PartialEq, PartialOrd)]
+#[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 #[serde(tag = "typ")]
 pub enum Page {
     #[serde(rename = "nav_page")]
