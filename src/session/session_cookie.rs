@@ -6,7 +6,7 @@ use std::hash::{Hash, Hasher};
 use std::str::FromStr;
 
 #[cfg(feature = "servlin")]
-const SESSION_COOKIE_NAME: &str = "APPLIN_SESSION";
+const SESSION_COOKIE_NAME: &str = "session";
 
 #[derive(Clone, Copy, Deserialize, Eq, PartialEq, Serialize)]
 pub struct SessionCookie {
