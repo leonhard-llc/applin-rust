@@ -18,6 +18,9 @@
 //!
 //! # Cargo Geiger Safety Report
 //! # Changelog
+//! - v0.2.0
+//!     - Support `ApplinIos` 0.32.0.
+//!     - Remove `on_user_error_poll` action and make it a parameter of the `rpc` action.
 //! - v0.1.7
 //!     - Support `ApplinIos` 0.31.0.
 //!     - Add `modal` action.

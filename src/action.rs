@@ -37,6 +37,8 @@ pub struct Action {
     #[serde(default, skip_serializing_if = "crate::is_default")]
     message: String,
     #[serde(default, skip_serializing_if = "crate::is_default")]
+    on_user_error_poll: bool,
+    #[serde(default, skip_serializing_if = "crate::is_default")]
     page: String,
     #[serde(default, skip_serializing_if = "crate::is_default")]
     string_value: String,
@@ -52,6 +54,7 @@ impl Action {
             aspect_ratio: None,
             buttons: Vec::new(),
             message: String::new(),
+            on_user_error_poll: false,
             page: String::new(),
             string_value: String::new(),
             title: String::new(),
@@ -127,7 +130,7 @@ pub fn logout() -> Action {
 ///     "Delete Item?",
 ///     None,
 ///     vec![
-///         ("!Delete".into(), vec![rpc("/delete?id=123"), poll()]),
+///         ("!Delete".into(), vec![rpc("/delete?id=123", false), poll()]),
 ///         ("Cancel".into(), vec![]),
 ///     ]
 /// )])
@@ -147,11 +150,6 @@ pub fn modal(
     action
 }
 
-#[must_use]
-pub fn on_user_error_poll() -> Action {
-    Action::new("on_user_error_poll")
-}
-
 /// Use `poll` to update the page based on page data or backend data.
 ///
 /// To execute the action,
@@ -168,7 +166,7 @@ pub fn on_user_error_poll() -> Action {
 /// use applin::widget::button;
 /// use applin::action::{poll, rpc};
 /// # fn f() -> applin::widget::Button {
-/// button("Submit", [poll(), rpc("/form_submit")])
+/// button("Submit", [poll(), rpc("/form_submit", false)])
 /// # }
 /// ```
 #[must_use]
@@ -196,9 +194,10 @@ pub fn replace_all(page_key: impl Display) -> Action {
 }
 
 #[must_use]
-pub fn rpc(url: impl Display) -> Action {
+pub fn rpc(url: impl Display, on_user_error_poll: bool) -> Action {
     let mut action = Action::new("rpc");
     action.url = url.to_string();
+    action.on_user_error_poll = on_user_error_poll;
     action
 }
 
