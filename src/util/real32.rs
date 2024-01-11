@@ -5,7 +5,7 @@ use std::num::FpCategory;
 use serde::{Deserialize, Deserializer, Serialize};
 
 /// A 32-bit floating point number that cannot be NaN, infinity, or negative zero.
-#[derive(Clone, Debug, Serialize)]
+#[derive(Clone, Copy, Debug, Serialize)]
 pub struct Real32(f32);
 
 impl Real32 {

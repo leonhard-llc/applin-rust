@@ -18,6 +18,8 @@
 //!
 //! # Cargo Geiger Safety Report
 //! # Changelog
+//! - v0.2.1
+//!     - Make `Real32` `Copy`.
 //! - v0.2.0
 //!     - Support `ApplinIos` 0.32.0.
 //!     - Remove `on_user_error_poll` action and make it a parameter of the `rpc` action.
