@@ -29,23 +29,23 @@ pub fn modal_button(text: impl Into<String>, actions: impl Into<Vec<Action>>) ->
 /// Please let us know: <https://www.applin.dev/docs/feature-requests.html>.
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct Action {
-    typ: String,
+    pub typ: String,
     #[serde(default, skip_serializing_if = "crate::is_default")]
-    aspect_ratio: Option<Real32>,
+    pub aspect_ratio: Option<Real32>,
     #[serde(default, skip_serializing_if = "crate::is_default")]
-    buttons: Vec<ModalButton>,
+    pub buttons: Vec<ModalButton>,
     #[serde(default, skip_serializing_if = "crate::is_default")]
-    message: String,
+    pub message: String,
     #[serde(default, skip_serializing_if = "crate::is_default")]
-    on_user_error_poll: bool,
+    pub on_user_error_poll: bool,
     #[serde(default, skip_serializing_if = "crate::is_default")]
-    page: String,
+    pub page: String,
     #[serde(default, skip_serializing_if = "crate::is_default")]
-    string_value: String,
+    pub string_value: String,
     #[serde(default, skip_serializing_if = "crate::is_default")]
-    title: String,
+    pub title: String,
     #[serde(default, skip_serializing_if = "crate::is_default")]
-    url: String,
+    pub url: String,
 }
 impl Action {
     pub fn new(typ: impl Display) -> Self {
