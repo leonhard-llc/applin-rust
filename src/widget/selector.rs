@@ -6,6 +6,8 @@ pub struct Selector {
     #[serde(default, skip_serializing_if = "String::is_empty")]
     pub error: String,
     #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub id: String,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
     pub initial_string: String,
     #[serde(default, skip_serializing_if = "String::is_empty")]
     pub initial_string1: String,
@@ -21,7 +23,6 @@ pub struct Selector {
     pub options2: Vec<String>,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub poll_delay_ms: Option<u32>,
-    #[serde(default)]
     pub var_name: String,
     #[serde(default, skip_serializing_if = "String::is_empty")]
     pub var_name1: String,
@@ -42,6 +43,7 @@ impl Selector {
         assert!(!var_name.is_empty());
         Self {
             error: String::new(),
+            id: String::new(),
             initial_string: opt_initial.map_or(String::new(), Into::into),
             initial_string1: String::new(),
             initial_string2: String::new(),
@@ -54,6 +56,12 @@ impl Selector {
             var_name1: String::new(),
             var_name2: String::new(),
         }
+    }
+
+    #[must_use]
+    pub fn with_id(mut self, id: impl AsRef<str>) -> Self {
+        self.id = id.as_ref().to_string();
+        self
     }
 
     #[must_use]

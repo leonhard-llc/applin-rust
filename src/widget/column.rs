@@ -6,6 +6,8 @@ use serde::{Deserialize, Serialize};
 pub struct Column {
     #[serde(default, skip_serializing_if = "HAlignment::is_start")]
     pub align: HAlignment,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub id: String,
     #[serde(default, skip_serializing_if = "crate::is_default")]
     pub spacing: u16,
     #[serde(default)]
@@ -19,6 +21,7 @@ impl Column {
     pub fn new(widgets: impl Into<WidgetList>) -> Self {
         Self {
             align: HAlignment::Start,
+            id: String::new(),
             spacing: u16::default(),
             widgets: widgets.into().to_vec(),
         }
@@ -27,6 +30,12 @@ impl Column {
     #[must_use]
     pub fn with_alignment(mut self, align: HAlignment) -> Self {
         self.align = align;
+        self
+    }
+
+    #[must_use]
+    pub fn with_id(mut self, id: impl AsRef<str>) -> Self {
+        self.id = id.as_ref().to_string();
         self
     }
 

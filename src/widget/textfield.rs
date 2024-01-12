@@ -11,6 +11,8 @@ pub struct Textfield {
     #[serde(default, skip_serializing_if = "String::is_empty")]
     pub error: String,
     #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub id: String,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
     pub initial_string: String,
     #[serde(default, skip_serializing_if = "String::is_empty")]
     pub label: String,
@@ -22,7 +24,6 @@ pub struct Textfield {
     pub min_chars: u32,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub poll_delay_ms: Option<u32>,
-    #[serde(default)]
     pub var_name: String,
 }
 
@@ -37,6 +38,7 @@ impl Textfield {
             allow: Allow::All,
             auto_capitalize: None,
             error: String::new(),
+            id: String::new(),
             initial_string: String::new(),
             label: String::new(),
             max_chars: u32::MAX,
@@ -68,6 +70,12 @@ impl Textfield {
     #[must_use]
     pub fn with_opt_error(mut self, x: Option<impl Into<String>>) -> Self {
         self.error = x.map_or(String::new(), Into::into);
+        self
+    }
+
+    #[must_use]
+    pub fn with_id(mut self, id: impl AsRef<str>) -> Self {
+        self.id = id.as_ref().to_string();
         self
     }
 

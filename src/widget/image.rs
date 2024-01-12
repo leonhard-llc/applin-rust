@@ -6,7 +6,16 @@ use serde::{Deserialize, Serialize};
 pub struct Image {
     pub aspect_ratio: Real32,
     pub disposition: Disposition,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub id: String,
     pub url: String,
+}
+impl Image {
+    #[must_use]
+    pub fn with_id(mut self, id: impl AsRef<str>) -> Self {
+        self.id = id.as_ref().to_string();
+        self
+    }
 }
 
 /// # Panics
@@ -22,6 +31,7 @@ pub fn image(
     Image {
         aspect_ratio,
         disposition,
+        id: String::new(),
         url,
     }
 }

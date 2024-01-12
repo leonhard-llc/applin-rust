@@ -26,18 +26,21 @@ impl From<PlainPage> for Page {
 
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct NavPage {
-    pub title: String,
-    pub widget: Widget,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub end: Option<Widget>,
     #[serde(default, skip_serializing_if = "std::ops::Not::not")]
     pub ephemeral: bool,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub id: String,
     #[serde(default, skip_serializing_if = "crate::is_default")]
     pub poll_seconds: u32,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub start: Option<Widget>,
     #[serde(default, skip_serializing_if = "std::ops::Not::not")]
     pub stream: bool,
+    #[serde(default)]
+    pub title: String,
+    pub widget: Widget,
 }
 
 impl NavPage {
@@ -46,6 +49,7 @@ impl NavPage {
         Self {
             end: None,
             ephemeral: false,
+            id: String::new(),
             poll_seconds: 0,
             start: None,
             stream: false,
@@ -69,6 +73,12 @@ impl NavPage {
     #[must_use]
     pub fn with_ephemeral(mut self, ephemeral: bool) -> Self {
         self.ephemeral = ephemeral;
+        self
+    }
+
+    #[must_use]
+    pub fn with_id(mut self, id: impl AsRef<str>) -> Self {
+        self.id = id.as_ref().to_string();
         self
     }
 
@@ -103,14 +113,17 @@ pub fn nav_page(title: impl Into<String>, widget: impl Into<Widget>) -> NavPage 
 
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct PlainPage {
-    pub title: String,
-    pub widget: Widget,
     #[serde(default, skip_serializing_if = "std::ops::Not::not")]
     pub ephemeral: bool,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub id: String,
     #[serde(default, skip_serializing_if = "crate::is_default")]
     pub poll_seconds: u32,
     #[serde(default, skip_serializing_if = "std::ops::Not::not")]
     pub stream: bool,
+    #[serde(default)]
+    pub title: String,
+    pub widget: Widget,
 }
 
 impl PlainPage {
@@ -118,6 +131,7 @@ impl PlainPage {
     pub fn new(title: impl Into<String>, widget: impl Into<Widget>) -> Self {
         Self {
             ephemeral: false,
+            id: String::new(),
             poll_seconds: 0,
             stream: false,
             title: title.into(),
@@ -128,6 +142,12 @@ impl PlainPage {
     #[must_use]
     pub fn with_ephemeral(mut self, ephemeral: bool) -> Self {
         self.ephemeral = ephemeral;
+        self
+    }
+
+    #[must_use]
+    pub fn with_id(mut self, id: impl AsRef<str>) -> Self {
+        self.id = id.as_ref().to_string();
         self
     }
 

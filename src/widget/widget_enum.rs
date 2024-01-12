@@ -47,7 +47,7 @@ impl<A: Into<Widget>> From<Option<A>> for Widget {
     fn from(value: Option<A>) -> Self {
         match value {
             Some(widget) => widget.into(),
-            None => Widget::Empty(Empty {}),
+            None => Widget::Empty(Empty { id: String::new() }),
         }
     }
 }

@@ -6,6 +6,8 @@ use std::time::Duration;
 pub struct Checkbox {
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub actions: Vec<Action>,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub id: String,
     #[serde(default, skip_serializing_if = "std::ops::Not::not")]
     pub initial_bool: bool,
     #[serde(default, skip_serializing_if = "Option::is_none")]
@@ -24,10 +26,11 @@ impl Checkbox {
         assert!(!var_name.is_empty());
         Self {
             actions: Vec::new(),
-            var_name,
+            id: String::new(),
             initial_bool: false,
             poll_delay_ms: None,
             text: String::new(),
+            var_name,
         }
     }
 
@@ -35,6 +38,12 @@ impl Checkbox {
     #[must_use]
     pub fn with_actions(mut self, actions: impl IntoIterator<Item = Action>) -> Self {
         self.actions.extend(actions);
+        self
+    }
+
+    #[must_use]
+    pub fn with_id(mut self, id: impl AsRef<str>) -> Self {
+        self.id = id.as_ref().to_string();
         self
     }
 

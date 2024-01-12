@@ -7,6 +7,8 @@ pub struct NavButton {
     pub actions: Vec<Action>,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub badge_text: Option<String>,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub id: String,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub photo_url: Option<String>,
     #[serde(default, skip_serializing_if = "Option::is_none")]
@@ -21,6 +23,7 @@ impl NavButton {
         Self {
             actions: actions.into(),
             badge_text: None,
+            id: String::new(),
             photo_url: None,
             sub_text: None,
             text: text.into(),
@@ -44,6 +47,12 @@ impl NavButton {
     #[must_use]
     pub fn with_badge_text(mut self, badge: impl Into<String>) -> Self {
         self.badge_text = Some(badge.into());
+        self
+    }
+
+    #[must_use]
+    pub fn with_id(mut self, id: impl AsRef<str>) -> Self {
+        self.id = id.as_ref().to_string();
         self
     }
 

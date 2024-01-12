@@ -19,6 +19,7 @@
 //! # Cargo Geiger Safety Report
 //! # Changelog
 //! - v0.2.1
+//!     - Add `id` fields for testing.
 //!     - Make `Real32` `Copy`.
 //! - v0.2.0
 //!     - Support `ApplinIos` 0.32.0.
