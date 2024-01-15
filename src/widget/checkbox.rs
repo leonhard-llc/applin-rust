@@ -14,6 +14,8 @@ pub struct Checkbox {
     pub poll_delay_ms: Option<u32>,
     #[serde(default, skip_serializing_if = "String::is_empty")]
     pub text: String,
+    #[serde(default, skip_serializing_if = "std::ops::Not::not")]
+    pub validated: bool,
     pub var_name: String,
 }
 
@@ -30,6 +32,7 @@ impl Checkbox {
             initial_bool: false,
             poll_delay_ms: None,
             text: String::new(),
+            validated: false,
             var_name,
         }
     }
@@ -63,6 +66,12 @@ impl Checkbox {
     #[must_use]
     pub fn with_text(mut self, label: impl Into<String>) -> Self {
         self.text = label.into();
+        self
+    }
+
+    #[must_use]
+    pub fn with_validated(mut self) -> Self {
+        self.validated = true;
         self
     }
 }

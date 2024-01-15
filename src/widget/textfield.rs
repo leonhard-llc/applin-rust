@@ -24,6 +24,8 @@ pub struct Textfield {
     pub min_chars: u32,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub poll_delay_ms: Option<u32>,
+    #[serde(default, skip_serializing_if = "std::ops::Not::not")]
+    pub validated: bool,
     pub var_name: String,
 }
 
@@ -45,6 +47,7 @@ impl Textfield {
             max_lines: u32::MAX,
             min_chars: 0,
             poll_delay_ms: None,
+            validated: false,
             var_name,
         }
     }
@@ -125,6 +128,12 @@ impl Textfield {
     #[must_use]
     pub fn with_poll_delay(mut self, duration: Duration) -> Self {
         self.poll_delay_ms = Some(duration.as_millis().try_into().unwrap_or(u32::MAX));
+        self
+    }
+
+    #[must_use]
+    pub fn with_validated(mut self) -> Self {
+        self.validated = true;
         self
     }
 }

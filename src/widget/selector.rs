@@ -23,6 +23,8 @@ pub struct Selector {
     pub options2: Vec<String>,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub poll_delay_ms: Option<u32>,
+    #[serde(default, skip_serializing_if = "std::ops::Not::not")]
+    pub validated: bool,
     pub var_name: String,
     #[serde(default, skip_serializing_if = "String::is_empty")]
     pub var_name1: String,
@@ -52,6 +54,7 @@ impl Selector {
             options1: vec![],
             options2: vec![],
             poll_delay_ms: None,
+            validated: false,
             var_name,
             var_name1: String::new(),
             var_name2: String::new(),
@@ -106,6 +109,12 @@ impl Selector {
     #[must_use]
     pub fn with_poll_delay(mut self, duration: Duration) -> Self {
         self.poll_delay_ms = Some(duration.as_millis().try_into().unwrap_or(u32::MAX));
+        self
+    }
+
+    #[must_use]
+    pub fn with_validated(mut self) -> Self {
+        self.validated = true;
         self
     }
 }
