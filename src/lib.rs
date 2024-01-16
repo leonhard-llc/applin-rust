@@ -18,6 +18,7 @@
 //!
 //! # Cargo Geiger Safety Report
 //! # Changelog
+//! - v0.2.3 - Add `id` field to `Action` and `ModalButton`, for testing.
 //! - v0.2.2 - Add `with_validated` to input widgets.  Supports `ApplinIos` 0.33.0.
 //! - v0.2.1
 //!     - Add `id` fields for testing.

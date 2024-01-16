@@ -4,14 +4,24 @@ use std::fmt::Display;
 
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct ModalButton {
-    pub text: String,
     pub actions: Vec<Action>,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub id: String,
+    pub text: String,
+}
+impl ModalButton {
+    #[must_use]
+    pub fn with_id(mut self, id: impl AsRef<str>) -> Self {
+        self.id = id.as_ref().to_string();
+        self
+    }
 }
 
 pub fn modal_button(text: impl Into<String>, actions: impl Into<Vec<Action>>) -> ModalButton {
     ModalButton {
-        text: text.into(),
         actions: actions.into(),
+        id: String::new(),
+        text: text.into(),
     }
 }
 
@@ -34,6 +44,8 @@ pub struct Action {
     pub aspect_ratio: Option<Real32>,
     #[serde(default, skip_serializing_if = "crate::is_default")]
     pub buttons: Vec<ModalButton>,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub id: String,
     #[serde(default, skip_serializing_if = "crate::is_default")]
     pub message: String,
     #[serde(default, skip_serializing_if = "crate::is_default")]
@@ -53,6 +65,7 @@ impl Action {
             typ: typ.to_string(),
             aspect_ratio: None,
             buttons: Vec::new(),
+            id: String::new(),
             message: String::new(),
             on_user_error_poll: false,
             page: String::new(),
@@ -60,6 +73,12 @@ impl Action {
             title: String::new(),
             url: String::new(),
         }
+    }
+
+    #[must_use]
+    pub fn with_id(mut self, id: impl AsRef<str>) -> Self {
+        self.id = id.as_ref().to_string();
+        self
     }
 }
 
