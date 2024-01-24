@@ -221,6 +221,11 @@ pub fn rpc(url: impl Display, on_user_error_poll: bool) -> Action {
 }
 
 #[must_use]
+pub fn stop_actions() -> Action {
+    Action::new("stop_actions")
+}
+
+#[must_use]
 pub fn take_photo(upload_url: impl Display, aspect_ratio: Option<f32>) -> Action {
     let mut action = Action::new("take_photo");
     action.aspect_ratio = aspect_ratio.map(Real32::new);
