@@ -58,6 +58,8 @@ pub struct Action {
     pub title: String,
     #[serde(default, skip_serializing_if = "crate::is_default")]
     pub url: String,
+    #[serde(default, skip_serializing_if = "crate::is_default")]
+    var_name: String,
 }
 impl Action {
     pub fn new(typ: impl Display) -> Self {
@@ -72,6 +74,7 @@ impl Action {
             string_value: String::new(),
             title: String::new(),
             url: String::new(),
+            var_name: String::new(),
         }
     }
 
@@ -209,6 +212,13 @@ pub fn push(page_key: impl Display) -> Action {
 pub fn replace_all(page_key: impl Display) -> Action {
     let mut action = Action::new("replace_all");
     action.page = page_key.to_string();
+    action
+}
+
+#[must_use]
+pub fn reset_var(var_name: impl Display) -> Action {
+    let mut action = Action::new("reset_var");
+    action.var_name = var_name.to_string();
     action
 }
 
