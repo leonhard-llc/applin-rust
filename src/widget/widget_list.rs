@@ -1,4 +1,5 @@
 #![allow(clippy::many_single_char_names)]
+
 use crate::widget::Widget;
 
 /// This struct converts a tuple of widget builders (`Into<Widget>`) to a vector of widgets.
@@ -7,8 +8,23 @@ pub struct WidgetList(pub Vec<Widget>);
 
 impl WidgetList {
     #[must_use]
+    pub fn new() -> Self {
+        Self(vec![])
+    }
+
+    pub fn push(&mut self, widget: impl Into<Widget>) {
+        self.0.push(widget.into());
+    }
+
+    #[must_use]
     pub fn to_vec(self) -> Vec<Widget> {
         self.0
+    }
+}
+
+impl Default for WidgetList {
+    fn default() -> Self {
+        Self::new()
     }
 }
 

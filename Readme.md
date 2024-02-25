@@ -30,7 +30,7 @@ Symbols:
 
 Functions  Expressions  Impls  Traits  Methods  Dependency
 
-0/0        0/0          0/0    0/0     0/0      🔒  applin 0.2.4
+0/0        0/0          0/0    0/0     0/0      🔒  applin 0.2.5
 0/0        7/20         0/0    0/0     0/0      ☢️  ├── nanorand 0.7.0
 3/7        47/225       0/1    0/0     1/3      ☢️  │   └── getrandom 0.2.12
 0/0        0/0          0/0    0/0     0/0      ❓  │       ├── cfg-if 1.0.0
@@ -48,8 +48,6 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 0/0        4/4          0/0    0/0     0/0      ☢️  │           └── unicode-ident 1.0.12
 0/0        0/0          0/0    0/0     0/0      🔒  └── servlin 0.4.3
 0/0        4/4          0/0    0/0     2/2      ☢️      ├── async-fs 1.6.0
-                                                           │   [build-dependencies]
-0/0        0/0          0/0    0/0     0/0      ❓      │   └── autocfg 1.1.0
 4/4        230/230      40/40  0/0     12/12    ☢️      │   ├── async-lock 2.8.0
 0/0        106/116      4/8    0/0     0/0      ☢️      │   │   └── event-listener 2.5.3
 0/0        0/0          0/0    0/0     0/0      🔒      │   ├── blocking 1.5.1
@@ -98,6 +96,8 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 0/0        0/0          0/0    0/0     0/0      🔒      │       ├── parking 2.2.0
 0/0        11/191       0/0    0/0     2/2      ☢️      │       ├── pin-project-lite 0.2.13
 0/0        0/0          0/0    0/0     0/0      🔒      │       └── waker-fn 1.1.1
+                                                           │   [build-dependencies]
+0/0        0/0          0/0    0/0     0/0      ❓      │   └── autocfg 1.1.0
 0/0        0/0          0/0    0/0     0/0      🔒      ├── async-net 1.8.0
 0/0        2/4          0/0    0/0     0/0      ☢️      │   ├── async-io 1.13.0
                                                            │   │   [build-dependencies]
@@ -187,6 +187,8 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 
 ```
 # Changelog
+- v0.2.5
+    - Add `WidgetList::push` and `WidgetList::new`.
 - v0.2.4
     - Support `ApplinIos` 0.36.0.
     - Add `reset_var` and `stop_actions` actions.

@@ -7,7 +7,7 @@ keywords = ["applin", "mobile", "ui", "reactnative", "flutter"]
 license-file = "License.txt"
 name = "applin"
 repository = "https://github.com/leonhard-llc/applin-rust"
-version = "0.2.4"
+version = "0.2.5"
 
 [dependencies]
 #servlin = { version = "^0.4.3", optional = true, features = ["json"], path = "../servlin" }

@@ -18,6 +18,8 @@
 //!
 //! # Cargo Geiger Safety Report
 //! # Changelog
+//! - v0.2.5
+//!     - Add `WidgetList::push` and `WidgetList::new`.
 //! - v0.2.4
 //!     - Support `ApplinIos` 0.36.0.
 //!     - Add `reset_var` and `stop_actions` actions.
@@ -55,6 +57,7 @@
 use crate::page::Page;
 use serde::{Deserialize, Serialize};
 use std::fmt::Debug;
+
 pub mod action;
 pub mod option;
 pub mod page;
