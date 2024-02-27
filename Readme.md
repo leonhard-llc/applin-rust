@@ -30,7 +30,7 @@ Symbols:
 
 Functions  Expressions  Impls  Traits  Methods  Dependency
 
-0/0        0/0          0/0    0/0     0/0      🔒  applin 0.2.5
+0/0        0/0          0/0    0/0     0/0      🔒  applin 0.2.6
 0/0        7/20         0/0    0/0     0/0      ☢️  ├── nanorand 0.7.0
 3/7        47/225       0/1    0/0     1/3      ☢️  │   └── getrandom 0.2.12
 0/0        0/0          0/0    0/0     0/0      ❓  │       ├── cfg-if 1.0.0
@@ -187,8 +187,8 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 
 ```
 # Changelog
-- v0.2.5
-    - Add `WidgetList::push` and `WidgetList::new`.
+- v0.2.6 - Add `RowList::push`, `RowList::new`, `OptWidgetList::push`, and `OptWidgetList::new`.
+- v0.2.5 - Add `WidgetList::push` and `WidgetList::new`.
 - v0.2.4
     - Support `ApplinIos` 0.36.0.
     - Add `reset_var` and `stop_actions` actions.

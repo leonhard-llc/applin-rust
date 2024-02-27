@@ -7,6 +7,27 @@ use serde::{Deserialize, Serialize};
 /// It supports tuples of length 0 through 10.
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct RowList(pub Vec<Vec<Option<Widget>>>);
+impl RowList {
+    #[must_use]
+    pub fn new() -> Self {
+        Self(vec![])
+    }
+
+    pub fn push(&mut self, widgets: impl Into<OptWidgetList>) {
+        self.0.push(widgets.into().to_vec());
+    }
+
+    #[must_use]
+    pub fn to_vec(self) -> Vec<Vec<Option<Widget>>> {
+        self.0
+    }
+}
+
+impl Default for RowList {
+    fn default() -> Self {
+        Self::new()
+    }
+}
 
 // From tuples of length 0 through 20.
 impl From<()> for RowList {

@@ -1,5 +1,4 @@
 #![allow(clippy::many_single_char_names)]
-
 use crate::widget::Widget;
 
 /// This struct converts a tuple of widget builders (`Into<Widget>`) to a vector of widgets.

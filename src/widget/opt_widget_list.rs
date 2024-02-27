@@ -4,6 +4,30 @@ use crate::widget::Widget;
 /// This struct converts a tuple `Into<Option<Widget>>` to a `Vec<Option<Widget>>`.
 /// It supports tuples of length 0 through 20.
 pub struct OptWidgetList(pub Vec<Option<Widget>>);
+impl OptWidgetList {
+    #[must_use]
+    pub fn new() -> Self {
+        Self(vec![])
+    }
+
+    pub fn push(&mut self, widget: impl Into<Widget>) {
+        match widget.into() {
+            Widget::Empty(..) => self.0.push(None),
+            other => self.push(Some(other)),
+        }
+    }
+
+    #[must_use]
+    pub fn to_vec(self) -> Vec<Option<Widget>> {
+        self.0
+    }
+}
+
+impl Default for OptWidgetList {
+    fn default() -> Self {
+        Self::new()
+    }
+}
 
 impl From<Vec<Widget>> for OptWidgetList {
     fn from(v: Vec<Widget>) -> Self {
