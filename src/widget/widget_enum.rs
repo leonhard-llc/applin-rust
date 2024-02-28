@@ -1,6 +1,7 @@
 use crate::widget::{
-    BackButton, Button, Checkbox, Column, Empty, ErrorText, Form, FormButton, FormSection,
-    GroupedRowTable, Image, LastErrorText, NavButton, Scroll, Selector, Text, Textfield,
+    BackButton, Button, Checkbox, CheckboxButton, Column, Empty, ErrorText, Form, FormButton,
+    FormSection, GroupedRowTable, Image, LastErrorText, NavButton, Scroll, Selector, Text,
+    Textfield,
 };
 use serde::{Deserialize, Serialize};
 
@@ -13,6 +14,8 @@ pub enum Widget {
     Button(Button),
     #[serde(rename = "checkbox")]
     Checkbox(Checkbox),
+    #[serde(rename = "checkbox_button")]
+    CheckboxButton(CheckboxButton),
     #[serde(rename = "column")]
     Column(Column),
     #[serde(rename = "empty")]
@@ -67,6 +70,12 @@ impl From<Button> for Widget {
 impl From<Checkbox> for Widget {
     fn from(src: Checkbox) -> Self {
         Widget::Checkbox(src)
+    }
+}
+
+impl From<CheckboxButton> for Widget {
+    fn from(src: CheckboxButton) -> Self {
+        Widget::CheckboxButton(src)
     }
 }
 
@@ -169,6 +178,12 @@ impl From<Button> for Option<Widget> {
 impl From<Checkbox> for Option<Widget> {
     fn from(src: Checkbox) -> Self {
         Some(Widget::Checkbox(src))
+    }
+}
+
+impl From<CheckboxButton> for Option<Widget> {
+    fn from(src: CheckboxButton) -> Self {
+        Some(Widget::CheckboxButton(src))
     }
 }
 

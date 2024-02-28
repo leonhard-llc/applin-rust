@@ -1,6 +1,7 @@
 mod back_button;
 mod button;
 mod checkbox;
+mod checkbox_button;
 mod column;
 mod empty;
 mod error_text;
@@ -24,6 +25,7 @@ mod widget_list;
 pub use back_button::*;
 pub use button::*;
 pub use checkbox::*;
+pub use checkbox_button::*;
 pub use column::*;
 pub use empty::*;
 pub use error_text::*;
