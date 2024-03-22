@@ -16,6 +16,8 @@ Documentation: <https://www.applin.dev/docs/>
 
 Example and live demo: <https://github.com/leonhard-llc/applin-rust-demo>
 
+Related crate: [applin_headless](https://crates.io/crates/applin_headless)
+
 # Cargo Geiger Safety Report
 ```
 
@@ -30,7 +32,7 @@ Symbols:
 
 Functions  Expressions  Impls  Traits  Methods  Dependency
 
-0/0        0/0          0/0    0/0     0/0      🔒  applin 0.2.7
+0/0        0/0          0/0    0/0     0/0      🔒  applin 0.2.8
 0/0        7/20         0/0    0/0     0/0      ☢️  ├── nanorand 0.7.0
 3/7        47/225       0/1    0/0     1/3      ☢️  │   └── getrandom 0.2.12
 0/0        0/0          0/0    0/0     0/0      ❓  │       ├── cfg-if 1.0.0
@@ -46,6 +48,10 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 0/0        15/15        0/0    0/0     3/3      ☢️  │           ├── proc-macro2 1.0.78
 0/0        0/0          0/0    0/0     0/0      ❓  │           ├── quote 1.0.35
 0/0        4/4          0/0    0/0     0/0      ☢️  │           └── unicode-ident 1.0.12
+0/0        4/7          0/0    0/0     0/0      ☢️  ├── serde_json 1.0.111
+0/0        7/7          0/0    0/0     0/0      ☢️  │   ├── itoa 1.0.10
+7/9        579/715      0/0    0/0     2/2      ☢️  │   ├── ryu 1.0.16
+0/0        5/5          0/0    0/0     0/0      ☢️  │   └── serde 1.0.195
 0/0        0/0          0/0    0/0     0/0      🔒  └── servlin 0.4.3
 0/0        4/4          0/0    0/0     2/2      ☢️      ├── async-fs 1.6.0
                                                            │   [build-dependencies]
@@ -109,11 +115,11 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 2/2        18/20        1/1    0/0     0/0      ☢️      │   │   ├── log 0.4.20
 0/0        0/0          0/0    0/0     0/0      🔒      │   │   ├── parking 2.2.0
 0/1        11/250       5/16   1/4     0/5      ☢️      │   │   ├── polling 2.8.0
+                                                           │   │   │   [build-dependencies]
+0/0        0/0          0/0    0/0     0/0      ❓      │   │   │   └── autocfg 1.1.0
 0/0        0/0          0/0    0/0     0/0      ❓      │   │   │   ├── cfg-if 1.0.0
 1/90       10/582       0/2    0/0     5/63     ☢️      │   │   │   ├── libc 0.2.152
 2/2        18/20        1/1    0/0     0/0      ☢️      │   │   │   └── log 0.4.20
-                                                           │   │   │   [build-dependencies]
-0/0        0/0          0/0    0/0     0/0      ❓      │   │   │   └── autocfg 1.1.0
 44/371     1847/6661    1/2    0/0     6/22     ☢️      │   │   ├── rustix 0.37.27
 0/0        0/0          0/0    0/0     0/0      ❓      │   │   │   ├── bitflags 1.3.2
 0/0        35/103       0/0    0/0     0/0      ☢️      │   │   │   ├── errno 0.3.8
@@ -125,9 +131,9 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 0/0        7/7          0/0    0/0     0/0      ☢️      │   │   │   ├── itoa 1.0.10
 1/90       10/582       0/2    0/0     5/63     ☢️      │   │   │   └── libc 0.2.152
 0/0        24/24        0/0    0/0     3/3      ☢️      │   │   ├── slab 0.4.9
+0/0        5/5          0/0    0/0     0/0      ☢️      │   │   │   └── serde 1.0.195
                                                            │   │   │   [build-dependencies]
 0/0        0/0          0/0    0/0     0/0      ❓      │   │   │   └── autocfg 1.1.0
-0/0        5/5          0/0    0/0     0/0      ☢️      │   │   │   └── serde 1.0.195
 3/6        542/675      2/4    0/0     3/4      ☢️      │   │   ├── socket2 0.4.10
 0/0        0/0          0/0    0/0     0/0      🔒      │   │   └── waker-fn 1.1.1
 0/0        0/0          0/0    0/0     0/0      🔒      │   ├── blocking 1.5.1
@@ -165,9 +171,6 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 0/0        75/121       5/9    0/0     2/4      ☢️      │   └── once_cell 1.19.0
 0/0        5/5          0/0    0/0     0/0      ☢️      ├── serde 1.0.195
 0/0        4/7          0/0    0/0     0/0      ☢️      ├── serde_json 1.0.111
-0/0        7/7          0/0    0/0     0/0      ☢️      │   ├── itoa 1.0.10
-7/9        579/715      0/0    0/0     2/2      ☢️      │   ├── ryu 1.0.16
-0/0        5/5          0/0    0/0     0/0      ☢️      │   └── serde 1.0.195
 0/0        0/0          0/0    0/0     0/0      🔒      ├── temp-dir 0.1.12
 0/0        0/0          0/0    0/0     0/0      🔒      ├── temp-file 0.1.8
 0/0        0/0          0/0    0/0     0/0      ❓      └── url 2.5.0
@@ -187,6 +190,7 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 
 ```
 # Changelog
+- v0.2.8 - Make debug formatting more concise by using JSON, for better test failure messages.
 - v0.2.7
     - Support `ApplinIos` 0.38.0.
     - Add `checkbox_button`.

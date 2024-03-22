@@ -4,8 +4,9 @@ use crate::widget::{
     Textfield,
 };
 use serde::{Deserialize, Serialize};
+use std::fmt::{Debug, Formatter};
 
-#[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
+#[derive(Clone, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 #[serde(tag = "typ")]
 pub enum Widget {
     #[serde(rename = "back_button")]
@@ -44,6 +45,16 @@ pub enum Widget {
     Text(Text),
     #[serde(rename = "textfield")]
     Textfield(Textfield),
+}
+impl Debug for Widget {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        write!(
+            f,
+            "{}",
+            serde_json::to_string(self)
+                .unwrap_or_else(|_| "Widget<failed serializing>".to_string())
+        )
+    }
 }
 
 impl<A: Into<Widget>> From<Option<A>> for Widget {

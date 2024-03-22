@@ -1,6 +1,6 @@
 use crate::util::Real32;
 use serde::{Deserialize, Serialize};
-use std::fmt::Display;
+use std::fmt::{Debug, Display, Formatter};
 
 #[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct ModalButton {
@@ -37,7 +37,7 @@ pub fn modal_button(text: impl Into<String>, actions: impl Into<Vec<Action>>) ->
 ///
 /// Do you need an action that's not here?
 /// Please let us know: <https://www.applin.dev/docs/feature-requests.html>.
-#[derive(Clone, Debug, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
+#[derive(Clone, Deserialize, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
 pub struct Action {
     pub typ: String,
     #[serde(default, skip_serializing_if = "crate::is_default")]
@@ -82,6 +82,16 @@ impl Action {
     pub fn with_id(mut self, id: impl AsRef<str>) -> Self {
         self.id = id.as_ref().to_string();
         self
+    }
+}
+impl Debug for Action {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        write!(
+            f,
+            "{}",
+            serde_json::to_string(self)
+                .unwrap_or_else(|_| "Action<failed serializing>".to_string())
+        )
     }
 }
 

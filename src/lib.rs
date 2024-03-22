@@ -16,8 +16,11 @@
 //!
 //! Example and live demo: <https://github.com/leonhard-llc/applin-rust-demo>
 //!
+//! Related crate: [applin_headless](https://crates.io/crates/applin_headless)
+//!
 //! # Cargo Geiger Safety Report
 //! # Changelog
+//! - v0.2.8 - Make debug formatting more concise by using JSON, for better test failure messages.
 //! - v0.2.7
 //!     - Support `ApplinIos` 0.38.0.
 //!     - Add `checkbox_button`.
