@@ -20,6 +20,7 @@
 //!
 //! # Cargo Geiger Safety Report
 //! # Changelog
+//! - v0.2.9 2024-10-21 - Add `ModalButton::new` and `ModalButton::with_actions`.
 //! - v0.2.8 - Make debug formatting more concise by using JSON, for better test failure messages.
 //! - v0.2.7
 //!     - Support `ApplinIos` 0.38.0.

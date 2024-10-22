@@ -10,6 +10,26 @@ pub struct ModalButton {
     pub text: String,
 }
 impl ModalButton {
+    /// # Panics
+    /// Panics when `text` is empty.
+    #[must_use]
+    pub fn new(text: impl Into<String>) -> Self {
+        let text = text.into();
+        assert!(!text.is_empty());
+        Self {
+            actions: Vec::new(),
+            id: String::new(),
+            text,
+        }
+    }
+
+    /// Appends `actions`.
+    #[must_use]
+    pub fn with_actions(mut self, actions: impl IntoIterator<Item = Action>) -> Self {
+        self.actions.extend(actions);
+        self
+    }
+
     #[must_use]
     pub fn with_id(mut self, id: impl AsRef<str>) -> Self {
         self.id = id.as_ref().to_string();
@@ -156,14 +176,14 @@ pub fn logout() -> Action {
 /// ```
 /// use std::collections::HashMap;
 /// use applin::widget::button;
-/// use applin::action::{modal, poll, rpc};
+/// use applin::action::{modal, modal_button, poll, rpc};
 /// # fn f() -> applin::widget::Button {
 /// button("Delete", [modal(
 ///     "Delete Item?",
 ///     None,
 ///     vec![
-///         ("!Delete".into(), vec![rpc("/delete?id=123", false), poll()]),
-///         ("Cancel".into(), vec![]),
+///         modal_button("!Delete", vec![rpc("/delete?id=123", false), poll()]),
+///         modal_button("Cancel".to_string(), vec![]),
 ///     ]
 /// )])
 /// # }
