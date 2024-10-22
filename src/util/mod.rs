@@ -61,8 +61,9 @@ pub fn escape_ascii(input: &[u8]) -> String {
 #[must_use]
 #[allow(clippy::missing_panics_doc)]
 pub fn escape_and_elide(input: &[u8], max_len: usize) -> String {
-    if input.len() > max_len {
-        escape_ascii(&input[..max_len]) + "..."
+    if max_len < input.len() {
+        let end = usize::max(0, input.len() - max_len);
+        escape_ascii(&input[..end]) + "..."
     } else {
         escape_ascii(input)
     }
