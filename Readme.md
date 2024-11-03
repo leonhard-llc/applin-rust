@@ -33,7 +33,8 @@ Symbols:
 Functions  Expressions  Impls  Traits  Methods  Dependency
 
 0/0        0/0          0/0    0/0     0/0      🔒  applin 0.2.9
-0/0        0/0          0/0    0/0     0/0      🔒  ├── servlin 0.5.0
+0/0        0/0          0/0    0/0     0/0      🔒  ├── servlin 0.6.0
+0/0        0/0          0/0    0/0     0/0      🔒  │   ├── safina 0.6.0
 0/0        0/0          0/0    0/0     0/0      🔒  │   ├── async-fs 2.1.2
 4/4        222/222      40/40  0/0     13/13    ☢️  │   │   ├── async-lock 3.4.0
 0/0        2/2          0/0    0/0     0/0      ☢️  │   │   │   ├── event-listener-strategy 0.5.2
@@ -67,7 +68,6 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 0/0        14/14        1/1    0/0     0/0      ☢️  │   │   │   └── tracing 0.1.40
 0/0        11/191       0/0    0/0     2/2      ☢️  │   │   │       ├── pin-project-lite 0.2.14
 0/0        96/96        5/5    0/0     2/2      ☢️  │   │   │       └── tracing-core 0.1.32
-0/0        74/117       5/9    0/0     2/4      ☢️  │   │   │           └── once_cell 1.20.2
 0/0        0/0          0/0    0/0     0/0      ❓  │   │   └── futures-lite 2.3.0
 0/0        0/0          0/0    0/0     0/0      🔒  │   ├── async-net 2.0.0
 0/0        68/114       19/22  1/1     4/8      ☢️  │   │   ├── async-io 2.3.4
@@ -106,7 +106,6 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 0/0        0/0          0/0    0/0     0/0      ❓  │   │   └── futures-io 0.3.31
 0/0        0/0          0/0    0/0     0/0      ❓  │   ├── futures-io 0.3.31
 0/0        0/0          0/0    0/0     0/0      ❓  │   ├── futures-lite 2.3.0
-0/0        74/117       5/9    0/0     2/4      ☢️  │   ├── once_cell 1.20.2
 0/0        0/0          0/0    0/0     0/0      🔒  │   ├── permit 0.2.1
 0/0        32/32        0/0    0/0     0/0      ☢️  │   ├── rand 0.8.5
 1/90       10/596       0/2    0/0     5/69     ☢️  │   │   ├── libc 0.2.161
@@ -134,12 +133,6 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 0/0        0/0          0/0    0/0     0/0      🔒  │   │           ├── safe-proc-macro2 1.0.67
 0/0        0/0          0/0    0/0     0/0      🔒  │   │           └── safe-quote 1.0.15
 0/0        0/0          0/0    0/0     0/0      🔒  │   │               └── safe-proc-macro2 1.0.67
-0/0        0/0          0/0    0/0     0/0      🔒  │   ├── safina-executor 0.3.3
-0/0        0/0          0/0    0/0     0/0      🔒  │   │   ├── safina-sync 0.2.4
-0/0        0/0          0/0    0/0     0/0      🔒  │   │   └── safina-threadpool 0.2.4
-0/0        0/0          0/0    0/0     0/0      🔒  │   ├── safina-sync 0.2.4
-0/0        0/0          0/0    0/0     0/0      🔒  │   ├── safina-timer 0.1.11
-0/0        74/117       5/9    0/0     2/4      ☢️  │   │   └── once_cell 1.20.2
 0/0        5/5          0/0    0/0     0/0      ☢️  │   ├── serde 1.0.211
 0/0        66/69        0/0    0/0     0/0      ☢️  │   ├── serde_json 1.0.132
 0/0        7/7          0/0    0/0     0/0      ☢️  │   │   ├── itoa 1.0.11
@@ -165,11 +158,13 @@ Functions  Expressions  Impls  Traits  Methods  Dependency
 0/0        5/5          0/0    0/0     0/0      ☢️  ├── serde 1.0.211
 0/0        66/69        0/0    0/0     0/0      ☢️  └── serde_json 1.0.132
 
-105/552    8077/14990   117/160 11/14   214/359
+105/552    8003/14873   112/151 11/14   212/355
 
 ```
 # Changelog
-- v0.2.9 2024-10-21 - Add `ModalButton::new` and `ModalButton::with_actions`.
+- v0.2.9 2024-10-26
+    - Add `ModalButton::new` and `ModalButton::with_actions`.
+    - Upgrade to `servlin` v0.6.
 - v0.2.8 - Make debug formatting more concise by using JSON, for better test failure messages.
 - v0.2.7
     - Support `ApplinIos` 0.38.0.

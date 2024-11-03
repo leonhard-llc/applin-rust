@@ -10,7 +10,7 @@ repository = "https://github.com/leonhard-llc/applin-rust"
 version = "0.2.9"
 
 [dependencies]
-servlin = { version = "0.5", optional = true, features = ["json"], path = "../servlin" }
+servlin = { version = "0.6", optional = true, default-features = false, features = ["json"], path = "../servlin" }
 #servlin = { version = "^0.4.3", optional = true, features = ["json"] }
 nanorand = { version = "0.7", features = ["alloc", "chacha", "std"] }
 serde = { version = "1", features = ["derive"] }
