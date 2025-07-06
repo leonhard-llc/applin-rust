@@ -197,7 +197,7 @@ pub fn modal(
 ) -> Action {
     let mut action = Action::new("modal");
     action.title = title.into();
-    action.message = message.map(Into::into).unwrap_or_default();
+    action.message = message.unwrap_or_default();
     action.buttons = buttons.into();
     action
 }

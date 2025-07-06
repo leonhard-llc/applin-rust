@@ -2,6 +2,7 @@
 set -e
 set -x
 time cargo check --all-targets --all-features
+time cargo build --all-targets
 time cargo build --all-targets --all-features
 time cargo fmt --all
 time cargo clippy --all-targets --all-features --allow-dirty --allow-staged --fix -- -D clippy::pedantic

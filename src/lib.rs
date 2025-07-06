@@ -20,6 +20,7 @@
 //!
 //! # Cargo Geiger Safety Report
 //! # Changelog
+//! - v0.3.0 2025-07-06 - Upgrade to `servlin` v0.8.
 //! - v0.2.9 2024-10-26
 //!     - Add `ModalButton::new` and `ModalButton::with_actions`.
 //!     - Upgrade to `servlin` v0.6.
